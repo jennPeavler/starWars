@@ -1,18 +1,44 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {Controls} from '../Controls/Controls'
+import {SideBar} from '../SideBar/SideBar'
+import {Favorites} from '../Favorites/Favorites'
+import {CardDisplay} from '../CardDisplay/CardDisplay'
 
 class App extends Component {
+  constructor() {
+    super()
+    this.state = {
+      quote: []
+    }
+  }
+
+  componentDidMount() {
+    this.getScrollingQuote()
+  }
+
+  getScrollingQuote() {
+        fetch('http://swapi.co/api/films/')
+        .then((resp) => resp.json())
+        .then(function(data) {
+          console.log(data)
+        })
+      }
+
+
+
+
+
+
   render() {
     return (
       <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <h1>Swapi-Box</h1>
+        <Controls />
+        <SideBar />
+        <Favorites />
+        <CardDisplay />
+
       </div>
     );
   }
