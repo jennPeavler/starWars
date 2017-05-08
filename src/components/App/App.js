@@ -4,10 +4,12 @@ import {Controls} from '../Controls/Controls'
 import {SideBar} from '../SideBar/SideBar'
 import {Favorites} from '../Favorites/Favorites'
 import {CardDisplay} from '../CardDisplay/CardDisplay'
+import DataScrubbers from '../DataScrubbers/DataScrubbers'
 
 class App extends Component {
   constructor() {
     super()
+    this.dataScrubber = new DataScrubbers()
     this.state = {
       quote: []
     }
@@ -18,10 +20,10 @@ class App extends Component {
   }
 
   getScrollingQuote() {
-        fetch('http://swapi.co/api/films/')
+        fetch('http://swapi.co/api/films')
         .then((resp) => resp.json())
-        .then(function(data) {
-          console.log(data)
+        .then((data) => {
+        this.setState({ quote: this.dataScrubber.scrubQuotes(data) })
         })
       }
 
