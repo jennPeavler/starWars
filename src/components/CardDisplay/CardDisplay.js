@@ -1,6 +1,9 @@
 import React from 'react'
+import { VehicleCard } from '../VehicleCard/VehicleCard'
 
-export const CardDisplay = ({ people, planets, vehicles, lastClick}) => {
+export const CardDisplay = ({ people, planets, vehicles, lastClick }) => {
+
+  console.log(Object.keys(vehicles));
 
   switch(lastClick) {
     case 'people':
@@ -12,8 +15,18 @@ export const CardDisplay = ({ people, planets, vehicles, lastClick}) => {
         <div>planets</div>
       )
     case 'vehicles':
+
       return (
-        <div>vehicles</div>
+        <section>
+          {Object.keys(vehicles).map((key, index) => {
+            return(
+              <VehicleCard
+                key={index}
+                singleVehicle={vehicles[key]}
+               />
+            )
+          })}
+        </section>
       )
     default:
       return (
