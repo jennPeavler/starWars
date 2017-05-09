@@ -14,7 +14,8 @@ class App extends Component {
       quotes: [],
       people: {},
       planets: {},
-      vehicles: {}
+      vehicles: {},
+      lastClick: ''
     }
   }
 
@@ -34,7 +35,7 @@ class App extends Component {
     fetch('http://swapi.co/api/people')
     .then((resp) => resp.json())
     .then((data) => {
-    this.setState({ people: this.dataScrubber.scrubPeople(data) })
+    this.setState({ people: this.dataScrubber.scrubPeople(data), lastClick: 'people' })
     })
   }
 
@@ -42,16 +43,15 @@ class App extends Component {
     fetch('http://swapi.co/api/planets/')
     .then((resp) => resp.json())
     .then((data) => {
-      this.setState({ planets: this.dataScrubber.scrubPlanets(data) })
+      this.setState({ planets: this.dataScrubber.scrubPlanets(data), lastClick: 'planets' })
     })
   }
 
   getVehicles() {
-    console.log('fired')
     fetch('http://swapi.co/api/vehicles/')
     .then((resp) => resp.json())
     .then((data) => {
-      this.setState({ vehicles: this.dataScrubber.scrubVehicles(data) })
+      this.setState({ vehicles: this.dataScrubber.scrubVehicles(data), lastClick: 'vehicles' })
     })
   }
 
@@ -65,7 +65,12 @@ class App extends Component {
           getPlanets={this.getPlanets.bind(this)}/>
         <SideBar quotes={this.state.quotes}/>
         <Favorites />
-        <CardDisplay />
+        <CardDisplay
+          people={this.state.people}
+          planets={this.state.planets}
+          vehicles={this.state.vehicles}
+          lastClick={this.state.lastClick}
+          />
       </div>
     );
   }
