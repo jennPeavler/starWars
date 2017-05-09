@@ -12,13 +12,17 @@ class App extends Component {
     this.dataScrubber = new DataScrubbers()
     this.state = {
       quotes: [],
-      people: {}
+      people: {},
+      plantes: {},
+      vehicles: {}
     }
   }
 
   componentDidMount() {
     this.getScrollingQuote()
     this.getPeople()
+    this.getPlanets()
+    this.getVehicles()
   }
 
   getScrollingQuote() {
@@ -28,6 +32,7 @@ class App extends Component {
     this.setState({ quotes: this.dataScrubber.scrubQuotes(data) })
     })
   }
+
   getPeople() {
     fetch('http://swapi.co/api/people/')
     .then((resp) => resp.json())
@@ -37,14 +42,21 @@ class App extends Component {
     })
   }
 
+  getPlanets() {
+    fetch('http://swapi.co/api/planets/')
+    .then((resp) => resp.json())
+    .then((data) => {
+      this.dataScrubber.scrubPlanets(data)
+    })
+  }
 
-
-
-
-
-
-
-
+  getVehicles() {
+    fetch('http://swapi.co/api/vehicles/')
+    .then((resp) => resp.json())
+    .then((data) => {
+      this.dataScrubber.scrubVehicles(data)
+    })
+  }
 
   render() {
     return (
@@ -54,7 +66,6 @@ class App extends Component {
         <SideBar />
         <Favorites />
         <CardDisplay />
-
       </div>
     );
   }
