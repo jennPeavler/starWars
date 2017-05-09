@@ -13,16 +13,13 @@ class App extends Component {
     this.state = {
       quotes: [],
       people: {},
-      plantes: {},
+      planets: {},
       vehicles: {}
     }
   }
 
-  componentDidMount() {
+  componentWillMount() {
     this.getScrollingQuote()
-    this.getPeople()
-    this.getPlanets()
-    this.getVehicles()
   }
 
   getScrollingQuote() {
@@ -34,11 +31,10 @@ class App extends Component {
   }
 
   getPeople() {
-    fetch('http://swapi.co/api/people/')
+    fetch('http://swapi.co/api/people')
     .then((resp) => resp.json())
     .then((data) => {
-      this.dataScrubber.scrubPeople(data)
-    // this.setState({ quote: this.dataScrubber.scrubPeople(data) })
+    this.setState({ people: this.dataScrubber.scrubPeople(data) })
     })
   }
 
@@ -46,15 +42,16 @@ class App extends Component {
     fetch('http://swapi.co/api/planets/')
     .then((resp) => resp.json())
     .then((data) => {
-      this.dataScrubber.scrubPlanets(data)
+      this.setState({ planets: this.dataScrubber.scrubPlanets(data) })
     })
   }
 
   getVehicles() {
+    console.log('fired')
     fetch('http://swapi.co/api/vehicles/')
     .then((resp) => resp.json())
     .then((data) => {
-      this.dataScrubber.scrubVehicles(data)
+      this.setState({ vehicles: this.dataScrubber.scrubVehicles(data) })
     })
   }
 
@@ -62,8 +59,11 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Swapi-Box</h1>
-        <Controls />
-        <SideBar />
+        <Controls
+          getPeople={this.getPeople.bind(this)}
+          getVehicles={this.getVehicles.bind(this)}
+          getPlanets={this.getPlanets.bind(this)}/>
+        <SideBar quotes={this.state.quotes}/>
         <Favorites />
         <CardDisplay />
       </div>

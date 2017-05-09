@@ -1,13 +1,9 @@
 import React from 'react'
 
-export const SideBar = () => {
-
-
-
+export const SideBar = ({ quotes }) => {
   return (
     <div>
-      dkljfaksdjfadslkfja
-
+      {quotes}
     </div>
   )
 }

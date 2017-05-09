@@ -1,5 +1,3 @@
-
-
 export default class DataScrubbers {
 
   scrubQuotes(data) {
@@ -7,12 +5,13 @@ export default class DataScrubbers {
       acc.push(val.opening_crawl)
       return acc
     }, [])
-    return quotes
+    let randomNumber = Math.floor(Math.random()*7)
+    return quotes[randomNumber]
   }
 
   scrubPeople(data) {
 
-    let personalInfo = data.results.reduce((acc, val) => {
+    return data.results.reduce((acc, val) => {
       if(!acc[val.name]) {
 
         acc[val.name] = {}
@@ -35,13 +34,13 @@ export default class DataScrubbers {
           return
         })
       }
-        console.log(acc);
+        // console.log(acc);
       return acc
     }, {})
   }
 
-    scrubPlanets(data) {
-      let planetInfo = data.results.reduce((acc, val) => {
+  scrubPlanets(data) {
+      return data.results.reduce((acc, val) => {
           if(!acc[val.name]) {
             acc[val.name] = {}
             acc[val.name].name = val.name
@@ -62,13 +61,13 @@ export default class DataScrubbers {
               })
             })
           }
-          console.log(acc);
+          // console.log(acc);
         return acc
       }, {})
     }
 
-    scrubVehicles(data) {
-      let vehicleInfo = data.results.reduce((acc, val) => {
+  scrubVehicles(data) {
+      return data.results.reduce((acc, val) => {
         if(!acc[val.name]) {
           acc[val.name] = {}
           acc[val.name].name = val.name
@@ -76,8 +75,9 @@ export default class DataScrubbers {
           acc[val.name].class = val.vehicle_class
           acc[val.name].numberOfPassengers = val.passengers
         }
-        console.log(acc);
+        // console.log(acc);
         return acc
       }, {})
     }
+
 }

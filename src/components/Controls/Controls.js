@@ -1,11 +1,13 @@
 import React from 'react'
 
-export const Controls = () => {
+export const Controls = ( {getPeople, getVehicles, getPlanets}) => {
+  console.log(getVehicles)
   return (
     <div>
-      <button>PEOPLE</button>
-      <button>PLANETS</button>
-      <button>VEHICLES</button>
+      <button onClick= {() => getPeople()}>PEOPLE</button>
+      <button onClick= {() => getPlanets()}>PLANETS</button>
+      <button onClick= {() => getVehicles()}>VEHICLES</button>
+
 
     </div>
   )
