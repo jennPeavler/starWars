@@ -11,21 +11,35 @@ class App extends Component {
     super()
     this.dataScrubber = new DataScrubbers()
     this.state = {
-      quote: []
+      quotes: [],
+      people: {}
     }
   }
 
   componentDidMount() {
     this.getScrollingQuote()
+    this.getPeople()
   }
 
   getScrollingQuote() {
-        fetch('http://swapi.co/api/films')
-        .then((resp) => resp.json())
-        .then((data) => {
-        this.setState({ quote: this.dataScrubber.scrubQuotes(data) })
-        })
-      }
+    fetch('http://swapi.co/api/films')
+    .then((resp) => resp.json())
+    .then((data) => {
+    this.setState({ quotes: this.dataScrubber.scrubQuotes(data) })
+    })
+  }
+  getPeople() {
+    fetch('http://swapi.co/api/people/')
+    .then((resp) => resp.json())
+    .then((data) => {
+      this.dataScrubber.scrubPeople(data)
+    // this.setState({ quote: this.dataScrubber.scrubPeople(data) })
+    })
+  }
+
+
+
+
 
 
 
