@@ -15,7 +15,8 @@ class App extends Component {
       people: {},
       planets: {},
       vehicles: {},
-      lastClick: ''
+      lastClick: '',
+      favorites: []
     }
   }
 
@@ -37,6 +38,20 @@ class App extends Component {
     let click = e.target.innerHTML.toLowerCase()
     // console.log(click);
     this.setState({ lastClick: click })
+  }
+
+  handleToggle(name){
+    console.log(name);
+    if(!this.state.favorites.includes(name)) {
+
+      this.state.favorites.push(name)
+      return this.setState( {favorites: this.state.favorites} )
+    } else if (this.state.favorites.includes(name)) {
+
+      let match = this.state.favorites.indexOf(name)
+      this.state.favorites.splice(match, 1)
+      this.setState({favorites: this.state.favorites})
+    }
   }
 
   getScrollingQuote() {
@@ -102,7 +117,10 @@ class App extends Component {
                 people={this.state.people}
                 planets={this.state.planets}
                 vehicles={this.state.vehicles}
-                lastClick={this.state.lastClick} />
+                lastClick={this.state.lastClick} 
+                handleToggle={this.handleToggle.bind(this)}
+                favoriteClass={this.dataScrubber.favoriteClass}
+                favorites={this.state.favorites}/>
             </section>
         </section>
       </main>

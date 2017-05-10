@@ -80,4 +80,17 @@ export default class DataScrubbers {
       }, {})
     }
 
+    favoriteClass(name, favorites) {
+      if (favorites.length === 0) {
+        return ""
+      } else if (favorites.length) {
+        let match = favorites.find((val) => {
+          return val === name
+        })
+        if (match) {
+          return 'selected'
+        }
+      }
+    }
+
 }

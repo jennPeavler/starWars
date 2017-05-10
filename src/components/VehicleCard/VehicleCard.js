@@ -1,9 +1,9 @@
 import React from 'react'
 
-export const VehicleCard = ({ singleVehicle }) => {
-  // console.log(singleVehicle.name);
+export const VehicleCard = ({ singleVehicle, handleToggle, favoriteClass, favorites }) => {
+  let favoriteCssClass = favoriteClass(singleVehicle.name, favorites)
   return (
-    <section className='vehicle-card'>
+    <section className={`vehicle-card ${favoriteCssClass}`} onClick={() => {handleToggle(singleVehicle.name)}}>
       <h2>{singleVehicle.name}</h2>
       <h4>{singleVehicle.model}</h4>
       <h4>{singleVehicle.class}</h4>
