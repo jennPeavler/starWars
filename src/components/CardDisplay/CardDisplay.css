@@ -1,4 +1,26 @@
-#card-display {
-  background: grey;
+.vehicle-card {
+  border: 3px solid;
+  width: 20%;
+  margin-top: 30px;
+  height: 200px;
+  border-radius: 10%;
+  text-align: center;
+  background: #E30A00;
+}
 
+h2 {
+  margin-top: 0;
+}
+
+#category-div {
+  font-size: 4em;
+  position: relative;
+  margin-top: 100px;
+  text-align: center;
+  background-color: #4F3952;
+  width: 75%;
+  border-radius: 25px;
+  padding-bottom: 1%;
+  margin-left: auto;
+  margin-right: auto;
 }

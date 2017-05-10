@@ -45,7 +45,7 @@ export const CardDisplay = ({ people, planets, vehicles, lastClick, handleToggle
     case 'vehicles':
 
       return (
-        <section>
+        <section id='vehicle-section'>
           {Object.keys(vehicles).map((key, index) => {
             return(
               <VehicleCard
@@ -61,7 +61,7 @@ export const CardDisplay = ({ people, planets, vehicles, lastClick, handleToggle
       )
     default:
       return (
-        <div>please select category</div>
+        <div id='category-div'>please select category</div>
       )
   }
 }

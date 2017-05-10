@@ -1,0 +1,29 @@
+.button {
+width: 150px;
+padding-top: 4px;
+margin-right: 20px;
+height: 30px;
+border-radius: 20px;
+border: none;
+background: white;
+}
+
+.button:focus {
+  outline: 0;
+  border: 1px dotted #E30A00
+}
+
+#favorites-indicator {
+  margin-left: 5px;
+  background-color: #E30A00;
+  font-weight: bold;
+  border-radius: 25%;
+  margin-bottom: 2px;
+  padding: 2px;
+}
+
+#favorites-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
