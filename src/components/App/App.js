@@ -22,21 +22,13 @@ class App extends Component {
 
   componentWillMount() {
     this.getScrollingQuote()
-    // console.log('we got the data already')
     this.getPeople()
     this.getPlanets()
     this.getVehicles()
   }
 
-  // componentDidMount() {
-  //   this.getPeople()
-  //   this.getPlanets()
-  //   this.getVehicles()
-  // }
-
   handleClick(cardType) {
-    // let click = e.target.innerHTML.toLowerCase()
-    // console.log(click);
+
     this.setState({ lastClick: cardType })
   }
 
@@ -86,7 +78,7 @@ class App extends Component {
       this.setState({ planets: this.dataScrubber.scrubPlanets(data) })
     })
     .catch((error) => {
-
+      this.setState({ planets: 'Need planets, you do' })
     })
   }
 
@@ -97,7 +89,7 @@ class App extends Component {
       this.setState({ vehicles: this.dataScrubber.scrubVehicles(data) })
     })
     .catch((error) => {
-
+      this.setState({ vehicles: 'Invisbile vehicles, you have!' })
     })
   }
 
