@@ -1,9 +1,10 @@
 import React from 'react'
 import { VehicleCard } from '../VehicleCard/VehicleCard'
 import { PlanetCard } from '../PlanetCard/PlanetCard'
+import { PeopleCard } from '../PeopleCard/PeopleCard'
 
-export const CardDisplay = ({ people, planets, vehicles, lastClick }) => {
- console.log(planets.Naboo)
+export const CardDisplay = ({ people, planets, vehicles, lastClick, handleToggle, favoriteClass, favorites }) => {
+
  // if(planets.Naboo.residents === undefined) {
  //   console.log('I am not happy')
  // }
@@ -13,7 +14,18 @@ export const CardDisplay = ({ people, planets, vehicles, lastClick }) => {
   switch(lastClick) {
     case 'people':
       return (
-        <div>people</div>
+        <section>
+          {Object.keys(people).map((key, index) => {
+            return(
+              <PeopleCard
+                key={index}
+                singlePerson={people[key]}
+                handleToggle={handleToggle}
+                favoriteClass={favoriteClass}
+                favorites={favorites}/>
+            )
+          })}
+        </section>
       )
     case 'planets':
       return (
@@ -22,7 +34,10 @@ export const CardDisplay = ({ people, planets, vehicles, lastClick }) => {
             return (
               <PlanetCard
                 key={index}
-                singlePlanet={planets[key]} />
+                singlePlanet={planets[key]}
+                handleToggle={handleToggle}
+                favoriteClass={favoriteClass}
+                favorites={favorites}/>
             )
           })}
         </section>
@@ -30,12 +45,15 @@ export const CardDisplay = ({ people, planets, vehicles, lastClick }) => {
     case 'vehicles':
 
       return (
-        <section>
+        <section id='vehicle-section'>
           {Object.keys(vehicles).map((key, index) => {
             return(
               <VehicleCard
                 key={index}
                 singleVehicle={vehicles[key]}
+                handleToggle={handleToggle}
+                favoriteClass={favoriteClass}
+                favorites={favorites}
                />
             )
           })}
@@ -43,7 +61,7 @@ export const CardDisplay = ({ people, planets, vehicles, lastClick }) => {
       )
     default:
       return (
-        <div>please select category</div>
+        <div id='category-div'>please select category</div>
       )
   }
 }

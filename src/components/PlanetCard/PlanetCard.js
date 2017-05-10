@@ -1,9 +1,9 @@
 import React from 'react'
 
-export const PlanetCard = ({ singlePlanet }) => {
-  // console.log(singlePlanet.residents)
+export const PlanetCard = ({ singlePlanet, handleToggle, favoriteClass, favorites }) => {
+  let favoriteCssClass = favoriteClass(singlePlanet.name, favorites)
   return (
-    <section>
+    <section className={`planet-card ${favoriteCssClass}`} onClick={() => {handleToggle(singlePlanet.name)}}>
       <h1>{singlePlanet.name}</h1>
       <h3>{singlePlanet.terrain}</h3>
       <h3>{singlePlanet.population}</h3>
@@ -13,7 +13,7 @@ export const PlanetCard = ({ singlePlanet }) => {
       <h3>{res}</h3>
         )
       })}
-      
+
 
     </section>
   )
