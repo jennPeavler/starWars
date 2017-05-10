@@ -57,8 +57,15 @@ class App extends Component {
     fetch('http://swapi.co/api/films')
     .then((resp) => resp.json())
     .then((data) => {
-    this.setState({ quotes: this.dataScrubber.scrubQuotes(data) })
-    })
+    this.state.quotes.push(this.dataScrubber.scrubQuotes(data))
+    this.setState({ quotes: this.state.quotes })
+  })
+  .catch((response) => {
+
+
+      this.setState({ quotes: 'For quote more API calls you must have' })
+
+  })
   }
 
   getPeople() {
@@ -67,6 +74,9 @@ class App extends Component {
     .then((data) => {
     this.setState({ people: this.dataScrubber.scrubPeople(data) })
     })
+    .catch((error) => {
+      this.setState({ people: 'Need people, you do' })
+    })
   }
 
   getPlanets() {
@@ -74,7 +84,9 @@ class App extends Component {
     .then((resp) => resp.json())
     .then((data) => {
       this.setState({ planets: this.dataScrubber.scrubPlanets(data) })
-      // console.log(this.state.planets)
+    })
+    .catch((error) => {
+
     })
   }
 
@@ -83,6 +95,9 @@ class App extends Component {
     .then((resp) => resp.json())
     .then((data) => {
       this.setState({ vehicles: this.dataScrubber.scrubVehicles(data) })
+    })
+    .catch((error) => {
+
     })
   }
 
@@ -110,7 +125,8 @@ class App extends Component {
                 getPlanets={this.getPlanets.bind(this)} />
               <Favorites
                 id='favorites'
-                handleClick={this.handleClick.bind(this)} />
+                handleClick={this.handleClick.bind(this)}
+                favorites={this.state.favorites}/>
             </section>
             </header>
             <section id='card-display'>
