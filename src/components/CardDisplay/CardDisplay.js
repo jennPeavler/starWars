@@ -4,12 +4,45 @@ import { PlanetCard } from '../PlanetCard/PlanetCard'
 import { PeopleCard } from '../PeopleCard/PeopleCard'
 
 export const CardDisplay = ({ people, planets, vehicles, lastClick, handleToggle, favoriteClass, favorites }) => {
+  let handleFavorites = (card, index) => {
+    // console.log(card.name)
+    switch(card.type){
+      case 'people':
+        return(
+          <PeopleCard
+            key={index}
+            singlePerson={card}
+            handleToggle={handleToggle}
+            favoriteClass={favoriteClass}
+            favorites={favorites}/>
+        )
+        case 'planets':
+          return(
+            <PlanetCard
+              key={index}
+              singlePlanet={card}
+              handleToggle={handleToggle}
+              favoriteClass={favoriteClass}
+              favorites={favorites}/>
+          )
+          case 'vehicles':
+            return(
+              <VehicleCard
+                key={index}
+                singleVehicle={card}
+                handleToggle={handleToggle}
+                favoriteClass={favoriteClass}
+                favorites={favorites}
+               />
+            )
+          default:
+            return(
+              <div>Add Some Favorites</div>
+            )
 
- // if(planets.Naboo.residents === undefined) {
- //   console.log('I am not happy')
- // }
 
-  // console.log(Object.keys(vehicles));
+    }
+  }
 
   switch(lastClick) {
     case 'people':
@@ -59,9 +92,35 @@ export const CardDisplay = ({ people, planets, vehicles, lastClick, handleToggle
           })}
         </section>
       )
+    case 'favorites':
+    if(!favorites.length) {
+      return (
+        <div>Add your favorites you must!</div>
+      )
+    }
+    return(
+      <div>
+      {favorites.map((card, index) => {
+        return(
+          <div>
+          {handleFavorites(card, index)}
+          </div>
+        )
+      })}
+      </div>
+    )
+
     default:
       return (
         <div id='category-div'>please select category</div>
       )
   }
+
 }
+
+// <PeopleCard
+// key={index}
+// singlePerson={people[key]}
+// handleToggle={handleToggle}
+// favoriteClass={favoriteClass}
+// favorites={favorites}/>
