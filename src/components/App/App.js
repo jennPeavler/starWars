@@ -110,7 +110,8 @@ class App extends Component {
                 getPlanets={this.getPlanets.bind(this)} />
               <Favorites
                 id='favorites'
-                handleClick={this.handleClick.bind(this)} />
+                handleClick={this.handleClick.bind(this)}
+                favorites={this.state.favorites}/>
             </section>
             </header>
             <section id='card-display'>
