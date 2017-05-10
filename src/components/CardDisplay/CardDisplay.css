@@ -11,3 +11,16 @@
 h2 {
   margin-top: 0;
 }
+
+#category-div {
+  font-size: 4em;
+  position: relative;
+  margin-top: 100px;
+  text-align: center;
+  background-color: #4F3952;
+  width: 75%;
+  border-radius: 25px;
+  padding-bottom: 1%;
+  margin-left: auto;
+  margin-right: auto;
+}

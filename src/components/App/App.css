@@ -33,15 +33,17 @@ h1 {
   width: 25%;
   background: #120F1E;
   height: 60em;
+
 }
 
 #side-bar {
 	position: absolute;
-	width: 10em;
+	width: 17%;
 	height: 100em;
 	bottom: 0;
 	left: 50%;
-	margin-left: -28em;
+	/*margin-left: -28em;*/
+  margin-left: -50%;
 	font-size: 1.4em;
 	font-weight: bold;
 	text-align: justify;

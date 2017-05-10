@@ -43,7 +43,7 @@ export const CardDisplay = ({ people, planets, vehicles, lastClick }) => {
       )
     default:
       return (
-        <div>please select category</div>
+        <div id='category-div'>please select category</div>
       )
   }
 }
