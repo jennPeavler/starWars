@@ -21,6 +21,13 @@ class App extends Component {
 
   componentWillMount() {
     this.getScrollingQuote()
+    console.log('we got the data already')
+    // this.getPeople()
+    // this.getPlanets()
+    // this.getVehicles()
+  }
+
+  componentDidMount() {
     this.getPeople()
     this.getPlanets()
     this.getVehicles()
@@ -28,7 +35,7 @@ class App extends Component {
 
   handleClick(e) {
     let click = e.target.innerHTML.toLowerCase()
-    console.log(click);
+    // console.log(click);
     this.setState({ lastClick: click })
   }
 

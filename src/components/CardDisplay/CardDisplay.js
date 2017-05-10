@@ -3,7 +3,7 @@ import { VehicleCard } from '../VehicleCard/VehicleCard'
 import { PlanetCard } from '../PlanetCard/PlanetCard'
 
 export const CardDisplay = ({ people, planets, vehicles, lastClick }) => {
- console.log(planets.Naboo)
+ // console.log(planets.Naboo)
  // if(planets.Naboo.residents === undefined) {
  //   console.log('I am not happy')
  // }
