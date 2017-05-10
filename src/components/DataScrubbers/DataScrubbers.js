@@ -16,6 +16,7 @@ export default class DataScrubbers {
 
         acc[val.name] = {}
         acc[val.name].name = val.name
+        acc[val.name].type = 'people'
 
         fetch(val.homeworld)
         .then((resp) => resp.json())
@@ -44,6 +45,7 @@ export default class DataScrubbers {
           if(!acc[val.name]) {
             acc[val.name] = {}
             acc[val.name].name = val.name
+            acc[val.name].type = 'planets'
             acc[val.name].terrain = val.terrain
             acc[val.name].population = val.population
             acc[val.name].climate = val.climate
@@ -71,6 +73,7 @@ export default class DataScrubbers {
         if(!acc[val.name]) {
           acc[val.name] = {}
           acc[val.name].name = val.name
+          acc[val.name].type = 'vehicles'
           acc[val.name].model = val.model
           acc[val.name].class = val.vehicle_class
           acc[val.name].numberOfPassengers = val.passengers

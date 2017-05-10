@@ -5,7 +5,7 @@ export const PeopleCard = ({ singlePerson, handleToggle, favoriteClass, favorite
 
 
   return(
-    <section className={`people-card ${favoriteCssClass}`} onClick={() => {handleToggle(singlePerson.name)}}>
+    <section className={`people-card ${favoriteCssClass}`} onClick={() => {handleToggle(singlePerson)}}>
       <h1>{singlePerson.name}</h1>
       <h3>{singlePerson.species}</h3>
       <h3>{singlePerson.language}</h3>

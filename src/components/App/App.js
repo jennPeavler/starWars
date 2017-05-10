@@ -22,26 +22,25 @@ class App extends Component {
 
   componentWillMount() {
     this.getScrollingQuote()
-    console.log('we got the data already')
-    // this.getPeople()
-    // this.getPlanets()
-    // this.getVehicles()
-  }
-
-  componentDidMount() {
+    // console.log('we got the data already')
     this.getPeople()
     this.getPlanets()
     this.getVehicles()
   }
 
-  handleClick(e) {
-    let click = e.target.innerHTML.toLowerCase()
+  // componentDidMount() {
+  //   this.getPeople()
+  //   this.getPlanets()
+  //   this.getVehicles()
+  // }
+
+  handleClick(cardType) {
+    // let click = e.target.innerHTML.toLowerCase()
     // console.log(click);
-    this.setState({ lastClick: click })
+    this.setState({ lastClick: cardType })
   }
 
   handleToggle(name){
-    console.log(name);
     if(!this.state.favorites.includes(name)) {
 
       this.state.favorites.push(name)
@@ -109,7 +108,9 @@ class App extends Component {
                 getPeople={this.getPeople.bind(this)}
                 getVehicles={this.getVehicles.bind(this)}
                 getPlanets={this.getPlanets.bind(this)} />
-              <Favorites id='favorites' />
+              <Favorites
+                id='favorites'
+                handleClick={this.handleClick.bind(this)} />
             </section>
             </header>
             <section id='card-display'>
@@ -117,7 +118,7 @@ class App extends Component {
                 people={this.state.people}
                 planets={this.state.planets}
                 vehicles={this.state.vehicles}
-                lastClick={this.state.lastClick} 
+                lastClick={this.state.lastClick}
                 handleToggle={this.handleToggle.bind(this)}
                 favoriteClass={this.dataScrubber.favoriteClass}
                 favorites={this.state.favorites}/>
