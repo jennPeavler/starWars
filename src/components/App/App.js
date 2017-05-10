@@ -21,6 +21,9 @@ class App extends Component {
 
   componentWillMount() {
     this.getScrollingQuote()
+    // this.getPeople()
+    // this.getPlanets()
+    // this.getVehicles()
   }
 
   getScrollingQuote() {
@@ -44,6 +47,7 @@ class App extends Component {
     .then((resp) => resp.json())
     .then((data) => {
       this.setState({ planets: this.dataScrubber.scrubPlanets(data), lastClick: 'planets' })
+      // console.log(this.state.planets)
     })
   }
 
