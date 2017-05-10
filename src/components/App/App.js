@@ -21,9 +21,15 @@ class App extends Component {
 
   componentWillMount() {
     this.getScrollingQuote()
-    // this.getPeople()
-    // this.getPlanets()
-    // this.getVehicles()
+    this.getPeople()
+    this.getPlanets()
+    this.getVehicles()
+  }
+
+  handleClick(e) {
+    let click = e.target.innerHTML.toLowerCase()
+    console.log(click);
+    this.setState({ lastClick: click })
   }
 
   getScrollingQuote() {
@@ -38,7 +44,7 @@ class App extends Component {
     fetch('http://swapi.co/api/people')
     .then((resp) => resp.json())
     .then((data) => {
-    this.setState({ people: this.dataScrubber.scrubPeople(data), lastClick: 'people' })
+    this.setState({ people: this.dataScrubber.scrubPeople(data) })
     })
   }
 
@@ -46,7 +52,7 @@ class App extends Component {
     fetch('http://swapi.co/api/planets/')
     .then((resp) => resp.json())
     .then((data) => {
-      this.setState({ planets: this.dataScrubber.scrubPlanets(data), lastClick: 'planets' })
+      this.setState({ planets: this.dataScrubber.scrubPlanets(data) })
       // console.log(this.state.planets)
     })
   }
@@ -55,7 +61,7 @@ class App extends Component {
     fetch('http://swapi.co/api/vehicles/')
     .then((resp) => resp.json())
     .then((data) => {
-      this.setState({ vehicles: this.dataScrubber.scrubVehicles(data), lastClick: 'vehicles' })
+      this.setState({ vehicles: this.dataScrubber.scrubVehicles(data) })
     })
   }
 
@@ -64,6 +70,7 @@ class App extends Component {
       <div className="App">
         <h1>Swapi-Box</h1>
         <Controls
+          handleClick={this.handleClick.bind(this)}
           getPeople={this.getPeople.bind(this)}
           getVehicles={this.getVehicles.bind(this)}
           getPlanets={this.getPlanets.bind(this)}/>
