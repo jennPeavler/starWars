@@ -67,22 +67,38 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <h1>Swapi-Box</h1>
-        <Controls
-          handleClick={this.handleClick.bind(this)}
-          getPeople={this.getPeople.bind(this)}
-          getVehicles={this.getVehicles.bind(this)}
-          getPlanets={this.getPlanets.bind(this)}/>
-        <SideBar quotes={this.state.quotes}/>
-        <Favorites />
-        <CardDisplay
-          people={this.state.people}
-          planets={this.state.planets}
-          vehicles={this.state.vehicles}
-          lastClick={this.state.lastClick}
-          />
-      </div>
+      <main className="App">
+        <aside id='side-bar-wrapper'>
+          <section id='side-bar'>
+            <div id='side-bar-content'>
+              <SideBar
+                id='movie-quote'
+                quotes={this.state.quotes} />
+            </div>
+          </section>
+        </aside>
+        <section id='content-wrapper'>
+          <header>
+            <h1 id='title'>STAR WARS IS RAD</h1>
+            <section id='button-wrapper'>
+              <Controls
+                id='controls'
+                handleClick={this.handleClick.bind(this)}
+                getPeople={this.getPeople.bind(this)}
+                getVehicles={this.getVehicles.bind(this)}
+                getPlanets={this.getPlanets.bind(this)} />
+              <Favorites id='favorites' />
+            </section>
+            </header>
+            <section id='card-display'>
+              <CardDisplay
+                people={this.state.people}
+                planets={this.state.planets}
+                vehicles={this.state.vehicles}
+                lastClick={this.state.lastClick} />
+            </section>
+        </section>
+      </main>
     );
   }
 }

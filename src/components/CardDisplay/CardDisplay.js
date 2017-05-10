@@ -30,7 +30,7 @@ export const CardDisplay = ({ people, planets, vehicles, lastClick }) => {
     case 'vehicles':
 
       return (
-        <section>
+        <section id='vehicle-section'>
           {Object.keys(vehicles).map((key, index) => {
             return(
               <VehicleCard
