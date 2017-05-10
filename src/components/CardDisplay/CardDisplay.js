@@ -1,9 +1,14 @@
 import React from 'react'
 import { VehicleCard } from '../VehicleCard/VehicleCard'
+import { PlanetCard } from '../PlanetCard/PlanetCard'
 
 export const CardDisplay = ({ people, planets, vehicles, lastClick }) => {
+ console.log(planets.Naboo)
+ // if(planets.Naboo.residents === undefined) {
+ //   console.log('I am not happy')
+ // }
 
-  console.log(Object.keys(vehicles));
+  // console.log(Object.keys(vehicles));
 
   switch(lastClick) {
     case 'people':
@@ -12,7 +17,15 @@ export const CardDisplay = ({ people, planets, vehicles, lastClick }) => {
       )
     case 'planets':
       return (
-        <div>planets</div>
+        <section>
+          {Object.keys(planets).map((key, index) => {
+            return (
+              <PlanetCard
+                key={index}
+                singlePlanet={planets[key]} />
+            )
+          })}
+        </section>
       )
     case 'vehicles':
 

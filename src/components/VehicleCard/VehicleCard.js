@@ -1,7 +1,7 @@
 import React from 'react'
 
 export const VehicleCard = ({ singleVehicle }) => {
-  console.log(singleVehicle.name);
+  // console.log(singleVehicle.name);
   return (
     <section className='vehicle-card'>
       <h1>{singleVehicle.name}</h1>
