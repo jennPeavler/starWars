@@ -18,7 +18,7 @@ describe('PlanetCard', () => {
       },1000)
     })
   }
-  
+
   const mockFunc =jest.fn()
 
   beforeEach(() => {
@@ -62,28 +62,26 @@ describe('PlanetCard', () => {
     expect(singleCard.id).toEqual('Naboo')
   })
 
-  it('should have one header h1 and four h3 sub categories', async () => {
+  it('should have one header h2 and four h4 sub categories', async () => {
     const wrapper = mount(<PlanetCard singlePlanet={singlePlanetData} favoriteClass={mockFunc} favorites={[]} />)
 
     await waitingFunc()
 
     const singleCardChildren = wrapper.find('.planet-card').props().children
-    console.log(singleCardChildren);
-
-    const h1Count = singleCardChildren.filter((attr) => {
-      return attr.type === 'h1'
+    const h2Count = singleCardChildren.filter((attr) => {
+      return attr.type === 'h2'
     })
 
-    const h3CountNonResident = singleCardChildren.filter((attr) => {
-      return attr.type === 'h3'
+    const h4CountNonResident = singleCardChildren.filter((attr) => {
+      return attr.type === 'h4'
     })
-    const h3CountResident = singleCardChildren[4].filter((attr) => {
-      return attr.type === 'h3'
+    const h4CountResident = singleCardChildren[4].filter((attr) => {
+      return attr.type === 'h4'
     })
 
-    const totalh3 = h3CountNonResident.length + h3CountResident.length
+    const totalh4 = h4CountNonResident.length + h4CountResident.length
 
-    expect(h1Count.length).toEqual(1)
-    expect(totalh3).toEqual(5)
+    expect(h2Count.length).toEqual(1)
+    expect(totalh4).toEqual(5)
   })
 })

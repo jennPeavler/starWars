@@ -18,7 +18,7 @@ describe('PeopleCard', () => {
       },1000)
     })
   }
-  
+
   const mockFunc =jest.fn()
 
   beforeEach(() => {
@@ -62,20 +62,20 @@ describe('PeopleCard', () => {
     expect(singleCard.id).toEqual('C-3PO')
   })
 
-  it('should have one header h1 and four h3 sub categories', async () => {
+  it('should have one header h2 and four h4 sub categories', async () => {
     const wrapper = mount(<PeopleCard singlePerson={singlePersonData} favoriteClass={mockFunc} favorites={[]} />)
 
     await waitingFunc()
 
     const singleCardChildren = wrapper.find('.people-card').props().children
 
-    const h1Count = singleCardChildren.filter((attr) => {
-      return attr.type === 'h1'
+    const h2Count = singleCardChildren.filter((attr) => {
+      return attr.type === 'h2'
     })
-    const h3Count = singleCardChildren.filter((attr) => {
-      return attr.type === 'h3'
+    const h4Count = singleCardChildren.filter((attr) => {
+      return attr.type === 'h4'
     })
-    expect(h1Count.length).toEqual(1)
-    expect(h3Count.length).toEqual(4)
+    expect(h2Count.length).toEqual(1)
+    expect(h4Count.length).toEqual(4)
   })
 })
