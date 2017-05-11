@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types';
 
 export const VehicleCard = ({ singleVehicle, handleToggle, favoriteClass, favorites }) => {
   let favoriteCssClass = favoriteClass(singleVehicle.name, favorites)
@@ -10,4 +11,11 @@ export const VehicleCard = ({ singleVehicle, handleToggle, favoriteClass, favori
       <h4>{singleVehicle.numberOfPassengers}</h4>
     </section>
   )
+}
+
+VehicleCard.PropTypes = {
+  singleVehicle: PropTypes.object,
+  handleToggle: PropTypes.func,
+  favoriteClass: PropTypes.string,
+  favorites: PropTypes.array
 }

@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 export const PlanetCard = ({ singlePlanet, handleToggle, favoriteClass, favorites }) => {
   let favoriteCssClass = favoriteClass(singlePlanet.name, favorites)
@@ -10,11 +11,16 @@ export const PlanetCard = ({ singlePlanet, handleToggle, favoriteClass, favorite
       <h3>{singlePlanet.climate}</h3>
       {singlePlanet.residents.map((res) => {
         return(
-      <h3 id={res.name}>{res}</h3>
+      <h3 key={res.name}>{res}</h3>
         )
       })}
-
-
     </section>
   )
+}
+
+PlanetCard.PropTypes = {
+  singlePlanet: PropTypes.object,
+  handleToggle: PropTypes.func,
+  favoriteClass: PropTypes.string,
+  favorites: PropTypes.array
 }

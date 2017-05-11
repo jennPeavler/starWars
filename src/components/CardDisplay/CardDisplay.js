@@ -2,6 +2,7 @@ import React from 'react'
 import { VehicleCard } from '../VehicleCard/VehicleCard'
 import { PlanetCard } from '../PlanetCard/PlanetCard'
 import { PeopleCard } from '../PeopleCard/PeopleCard'
+import PropTypes from 'prop-types'
 
 export const CardDisplay = ({ people, planets, vehicles, lastClick, handleToggle, favoriteClass, favorites }) => {
   let handleFavorites = (card, index) => {
@@ -114,9 +115,12 @@ export const CardDisplay = ({ people, planets, vehicles, lastClick, handleToggle
 
 }
 
-// <PeopleCard
-// key={index}
-// singlePerson={people[key]}
-// handleToggle={handleToggle}
-// favoriteClass={favoriteClass}
-// favorites={favorites}/>
+CardDisplay.PropTypes = {
+  people: PropTypes.object,
+  planets: PropTypes.object,
+  vehicles: PropTypes.object,
+  lastClick: PropTypes.string,
+  handleToggle: PropTypes.func,
+  favoriteClass: PropTypes.string,
+  favorites: PropTypes.array
+}
