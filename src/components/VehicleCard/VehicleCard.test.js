@@ -2,15 +2,15 @@ import React from 'react';
 import { mount, shallow } from 'enzyme'
 import fetchMock from 'fetch-mock'
 import App from '../App/App'
-import { PeopleCard } from './PeopleCard'
+import { VehicleCard } from './VehicleCard'
 import filmData from '../App/mockdata/filmData.js'
 import peopleData from '../App/mockdata/peopleData.js'
 import planetData from '../App/mockdata/planetData.js'
 import vehicleData from '../App/mockdata/vehicleData.js'
-import singlePersonData from '../App/mockdata/singlePersonData.js'
+import singleVehicleData from '../App/mockdata/singleVehicleData.js'
 import dataScrubbers from '../DataScrubbers/DataScrubbers'
 
-describe('PeopleCard', () => {
+describe('VehicleCard', () => {
   const waitingFunc = () => {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
@@ -18,7 +18,7 @@ describe('PeopleCard', () => {
       },1000)
     })
   }
-  
+
   const mockFunc =jest.fn()
 
   beforeEach(() => {
@@ -52,30 +52,32 @@ describe('PeopleCard', () => {
     expect(fetchMock.calls().unmatched).toEqual([])
   })
 
-  it('should prepend a section with the className people-card', async () => {
+  it('should prepend a section with the className vehicle-card', async () => {
 
-    const wrapper = mount(<PeopleCard singlePerson={singlePersonData} favoriteClass={mockFunc} favorites={[]} />)
+    const wrapper = mount(<VehicleCard singleVehicle={singleVehicleData} favoriteClass={mockFunc} favorites={[]} />)
 
     await waitingFunc()
 
-    const singleCard = wrapper.find('.people-card').props()
-    expect(singleCard.id).toEqual('C-3PO')
+    const singleCard = wrapper.find('.vehicle-card').props()
+    expect(singleCard.id).toEqual('AT-AT')
   })
 
   it('should have one header h1 and four h3 sub categories', async () => {
-    const wrapper = mount(<PeopleCard singlePerson={singlePersonData} favoriteClass={mockFunc} favorites={[]} />)
+    const wrapper = mount(<VehicleCard singleVehicle={singleVehicleData} favoriteClass={mockFunc} favorites={[]} />)
 
     await waitingFunc()
 
-    const singleCardChildren = wrapper.find('.people-card').props().children
+    const singleCardChildren = wrapper.find('.vehicle-card').props().children
+    console.log(singleCardChildren);
 
     const h1Count = singleCardChildren.filter((attr) => {
-      return attr.type === 'h1'
+      return attr.type === 'h2'
     })
-    const h3Count = singleCardChildren.filter((attr) => {
-      return attr.type === 'h3'
+    const h4Count = singleCardChildren.filter((attr) => {
+      return attr.type === 'h4'
     })
+
     expect(h1Count.length).toEqual(1)
-    expect(h3Count.length).toEqual(4)
+    expect(h4Count.length).toEqual(3)
   })
 })

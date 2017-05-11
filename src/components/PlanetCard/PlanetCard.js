@@ -5,13 +5,13 @@ export const PlanetCard = ({ singlePlanet, handleToggle, favoriteClass, favorite
   let favoriteCssClass = favoriteClass(singlePlanet.name, favorites)
   return (
     <section id={singlePlanet.name} className={`planet-card ${favoriteCssClass}`} onClick={() => {handleToggle(singlePlanet)}}>
-      <h1>{singlePlanet.name}</h1>
-      <h3>{singlePlanet.terrain}</h3>
-      <h3>{singlePlanet.population}</h3>
-      <h3>{singlePlanet.climate}</h3>
+      <h2>{singlePlanet.name}</h2>
+      <h4>{singlePlanet.terrain}</h4>
+      <h4>{singlePlanet.population}</h4>
+      <h4>{singlePlanet.climate}</h4>
       {singlePlanet.residents.map((res) => {
         return(
-      <h3 key={res.name}>{res}</h3>
+      <h4 key={res.name}>{res}</h4>
         )
       })}
     </section>
