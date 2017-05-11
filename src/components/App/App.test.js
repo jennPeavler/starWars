@@ -192,7 +192,7 @@ describe('App handleToggle function', () => {
     })
   }
 
-  beforeEach = () => {
+  beforeEach(() => {
     fetchMock.get('http://swapi.co/api/films/' , {
         status: 200,
         body: filmData
@@ -218,12 +218,12 @@ describe('App handleToggle function', () => {
         .catch()
 
 
-  }
+  })
 
-  afterEach = () => {
+  afterEach(() => {
     fetchMock.restore()
     expect(fetchMock.calls().unmatched).toEqual([])
-  }
+  })
 
   it('should add the correct card obj to favorites when the card is clicked', async () => {
     const wrapper = mount(<App />)

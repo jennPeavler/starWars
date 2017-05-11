@@ -35,7 +35,6 @@ export default class DataScrubbers {
           return
         })
       }
-        // console.log(acc);
       return acc
     }, {})
   }
@@ -50,20 +49,16 @@ export default class DataScrubbers {
             acc[val.name].population = val.population
             acc[val.name].climate = val.climate
             acc[val.name].residents = []
-            // NOTE:acc[val.name].residents = {}
 
             val.residents.forEach((resident, i) => {
               fetch(resident)
               .then((resp) => resp.json())
               .then((data) => {
                   acc[val.name].residents.push(data.name)
-                // acc[val.name].residents[i]=data.name
-                //NOTE:FOR RESIDENT BEING AN OBJECT
                 return
               })
             })
           }
-          // console.log(acc);
         return acc
       }, {})
     }
@@ -78,7 +73,6 @@ export default class DataScrubbers {
           acc[val.name].class = val.vehicle_class
           acc[val.name].numberOfPassengers = val.passengers
         }
-        // console.log(acc);
         return acc
       }, {})
     }
@@ -95,5 +89,4 @@ export default class DataScrubbers {
         }
       }
     }
-
 }
