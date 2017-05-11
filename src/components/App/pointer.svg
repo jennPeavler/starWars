@@ -1,0 +1,17 @@
+<svg width="24" height="30" xmlns="http://www.w3.org/2000/svg">
+
+ <g>
+  <title>background</title>
+  <rect fill="none" id="canvas_background" height="402" width="582" y="-1" x="-1"/>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <g id="svg_1">
+   <g id="svg_2">
+    <path fill='#4CB260' id="svg_3" d="m13.226,8.5l4.518,-8l-11.428,0l4.486,8l2.424,0zm-3.287,0.505l-4.488,-8.005l-4.773,10.5l8.013,0l1.248,-2.495zm5.37,2.495l8.013,0l-4.746,-10.44l-4.501,7.972l1.234,2.468zm-1.237,3.474l4.495,7.986l4.755,-10.46l-8.013,0l-1.237,2.474zm-3.248,0.526l-4.511,8l11.411,0l-4.503,-8l-2.397,0zm-2.133,-3l-8.013,0l4.771,10.496l4.5,-7.98l-1.258,-2.516z"/>
+   </g>
+  </g>
+  <text id="svg_4" font-family="'Helvetica Neue', Helvetica, Arial-Unicode, Arial, Sans-serif" font-weight="bold" font-size="5px" fill="#000000" y="39" x="0">Created by icon 54</text>
+  <text id="svg_5" font-family="'Helvetica Neue', Helvetica, Arial-Unicode, Arial, Sans-serif" font-weight="bold" font-size="5px" fill="#000000" y="44" x="0">from the Noun Project</text>
+ </g>
+</svg>
