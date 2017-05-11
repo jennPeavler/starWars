@@ -235,7 +235,7 @@ describe('App handleToggle function', () => {
 
     const cardToBeClicked = wrapper.find('#C-3PO')
 
-    console.log(cardToBeClicked)
+    // console.log(cardToBeClicked)
     cardToBeClicked.simulate('click')
     await waitingFunc()
     expect(cardToBeClicked.props().id).toBe('C-3PO')
@@ -282,7 +282,7 @@ describe('App handleToggle function', () => {
 
   })
 
-  it.only('should be able to add multiple card to favorites', async () => {
+  it('if there are multiple favorite card, and one is clicked, should remove the correct card', async () => {
     const wrapper = mount(<App />)
 
     await waitingFunc()
@@ -299,6 +299,34 @@ describe('App handleToggle function', () => {
     firstCard.simulate('click')
 
     expect(wrapper.state('favorites')[0].name).toEqual('R2-D2')
+
+
+  })
+
+  it.only('should be able to make all three types of cards favorite card', async () => {
+    const wrapper = mount(<App />)
+
+    await waitingFunc()
+
+    const peopleButton = wrapper.find('.people-btn')
+    peopleButton.simulate('click')
+    const peopleCard = wrapper.find('#R2-D2')
+    peopleCard.simulate('click')
+
+    const planetButton = wrapper.find('.planets-btn')
+    planetButton.simulate('click')
+    const planetCard = wrapper.find('#Naboo')
+    planetCard.simulate('click')
+
+    const vehicleButton = wrapper.find('.vehicles-btn')
+    vehicleButton.simulate('click')
+    const vehicleCard = wrapper.find('#AT-AT')
+    vehicleCard.simulate('click')
+
+    expect(wrapper.state('favorites').length).toEqual(3)
+
+
+
 
 
   })

@@ -5,7 +5,6 @@ import { PeopleCard } from '../PeopleCard/PeopleCard'
 
 export const CardDisplay = ({ people, planets, vehicles, lastClick, handleToggle, favoriteClass, favorites }) => {
   let handleFavorites = (card, index) => {
-    // console.log(card.name)
     switch(card.type){
       case 'people':
         return(
@@ -39,8 +38,6 @@ export const CardDisplay = ({ people, planets, vehicles, lastClick, handleToggle
             return(
               <div>Add Some Favorites</div>
             )
-
-
     }
   }
 
@@ -76,7 +73,6 @@ export const CardDisplay = ({ people, planets, vehicles, lastClick, handleToggle
         </section>
       )
     case 'vehicles':
-
       return (
         <section id='vehicle-section'>
           {Object.keys(vehicles).map((key, index) => {
@@ -95,7 +91,7 @@ export const CardDisplay = ({ people, planets, vehicles, lastClick, handleToggle
     case 'favorites':
     if(!favorites.length) {
       return (
-        <div>Add your favorites you must!</div>
+        <div id='select-favorites-display'>Add your favorites you must!</div>
       )
     }
     return(
