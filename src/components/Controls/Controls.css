@@ -40,6 +40,7 @@ font-family: 'death star'
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: url('./favorites.svg'), default;
 }
 
 .vehicles-btn {
@@ -48,4 +49,8 @@ font-family: 'death star'
 
 .people-btn {
   cursor: url('./people.png'), default;
+}
+
+.planets-btn {
+  cursor: url('./planets.png'), default;
 }
