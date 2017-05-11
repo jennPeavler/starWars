@@ -1,11 +1,12 @@
 .people-card {
   align-items: center;
+  background: url('../App/images/deathstar.jpg');
   background-blend-mode: overlay;
   background-color: rgba(132, 125, 130, 0.75);
   background-size: cover;
-  background: url('../App/images/deathstar.jpg');
   border-radius: 20px;
   border: 3px solid;
+  box-shadow: 3px 3px 3px rgba(37, 37, 37, 0.70);
   color:#F8AC1B;
   display: flex;
   flex-direction: column;
@@ -15,4 +16,13 @@
   padding: 20px 50px;
   text-align: center;
   width: 150px;
+}
+
+.people-card:hover {
+  box-shadow: none;
+}
+
+.selected {
+  background-blend-mode: overlay;
+  background-color: rgba(60, 32, 130, 0.76);
 }

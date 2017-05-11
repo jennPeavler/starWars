@@ -2,7 +2,12 @@ import React from 'react'
 import PropTypes from 'prop-types';
 
 export const VehicleCard = ({ singleVehicle, handleToggle, favoriteClass, favorites }) => {
-  let favoriteCssClass = favoriteClass(singleVehicle.name, favorites)
+  let favs = favorites.map((obj) => {
+    return obj.name
+  })
+
+  let favoriteCssClass = favoriteClass(singleVehicle.name, favs)
+
   return (
     <section id={singleVehicle.name} className={`vehicle-card ${favoriteCssClass}`} onClick={() => {handleToggle(singleVehicle)}}>
       <h2>{singleVehicle.name}</h2>

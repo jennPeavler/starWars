@@ -2,7 +2,11 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 export const PeopleCard = ({ singlePerson, handleToggle, favoriteClass, favorites }) => {
-  let favoriteCssClass = favoriteClass(singlePerson.name, favorites)
+  let favs = favorites.map((obj) => {
+    return obj.name
+  })
+
+  let favoriteCssClass = favoriteClass(singlePerson.name, favs)
 
 
   return(

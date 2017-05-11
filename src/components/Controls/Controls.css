@@ -29,17 +29,20 @@ font-family: 'death star'
 
 #favorites-indicator {
   margin-left: 5px;
-  background-color: #E30A00;
+  background-color: red;
   font-weight: bold;
   border-radius: 25%;
   margin-bottom: 2px;
   padding: 2px;
+  height:15px;
+  width:15px;
 }
 
 #favorites-btn {
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: url('./favorites.svg'), default;
 }
 
 .vehicles-btn {
@@ -48,4 +51,8 @@ font-family: 'death star'
 
 .people-btn {
   cursor: url('./people.png'), default;
+}
+
+.planets-btn {
+  cursor: url('./planets.png'), default;
 }

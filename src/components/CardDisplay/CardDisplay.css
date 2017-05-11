@@ -18,7 +18,6 @@ h2 {
 #select-favorites-display {
   font-size: 3.2em;
   position: relative;
-  /*margin-top: 100px;*/
   text-align: center;
   background-color: #4F3952;
   width: 75%;
@@ -26,5 +25,4 @@ h2 {
   padding-bottom: 1%;
   margin-left: auto;
   margin-right: auto;
-  /*text-shadow: -1px 0 #F8AC1B, 0 1px #F8AC1B, 1px 0 #F8AC1B, 0 -1px #F8AC1B;*/
 }
