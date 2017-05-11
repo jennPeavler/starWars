@@ -1,0 +1,18 @@
+.vehicle-card {
+  align-items: center;
+  background-blend-mode: overlay;
+  background-color: rgba(132, 125, 130, 0.75);
+  background-size: cover;
+  background: url('../App/images/deathstar.jpg');
+  border-radius: 20px;
+  border: 3px solid;
+  color:#F8AC1B;
+  display: flex;
+  flex-direction: column;
+  height: 350px;
+  margin-top: 30px;
+  overflow: scroll;
+  padding: 20px 50px;
+  text-align: center;
+  width: 150px;
+}
