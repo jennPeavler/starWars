@@ -140,9 +140,6 @@ describe('App Component API Calls', () => {
 })
 
 describe('App handleClick function', () => {
-  beforeEach = () => {
-    // const wrapper = mount(<App />)
-  }
 
   it('should change lastClicked state to people when people button is clicked', () => {
     const wrapper = mount(<App />)
@@ -228,7 +225,7 @@ describe('App handleToggle function', () => {
     expect(fetchMock.calls().unmatched).toEqual([])
   }
 
-  it.only('should add the correct card obj to favorites when the card is clicked', async () => {
+  it('should add the correct card obj to favorites when the card is clicked', async () => {
     const wrapper = mount(<App />)
 
     await waitingFunc()
@@ -236,13 +233,75 @@ describe('App handleToggle function', () => {
     const peopleButton = wrapper.find('.people-btn')
     peopleButton.simulate('click')
 
-    const CardDisplay = wrapper.find('CardDisplay')
     const cardToBeClicked = wrapper.find('#C-3PO')
 
+    console.log(cardToBeClicked)
     cardToBeClicked.simulate('click')
-
+    await waitingFunc()
     expect(cardToBeClicked.props().id).toBe('C-3PO')
     expect(wrapper.state('favorites')[0].name).toEqual('C-3PO')
     expect(wrapper.state('favorites')[0].name).not.toEqual('Luke Skywalker')
   })
+
+  it('should remove the correct card obj from favorites if it is clicked when it is already favorited', async () => {
+    const wrapper = mount(<App />)
+
+    await waitingFunc()
+
+    const peopleButton = wrapper.find('.people-btn')
+    peopleButton.simulate('click')
+
+    const cardToBeClicked = wrapper.find('#C-3PO')
+
+    // console.log(cardToBeClicked)
+    cardToBeClicked.simulate('click')
+    expect(wrapper.state('favorites').length).toEqual(1)
+
+    await waitingFunc()
+
+    cardToBeClicked.simulate('click')
+    expect(wrapper.state('favorites').length).toEqual(0)
+  })
+
+  it('should be able to add multiple card to favorites', async () => {
+    const wrapper = mount(<App />)
+
+    await waitingFunc()
+
+    const peopleButton = wrapper.find('.people-btn')
+    peopleButton.simulate('click')
+
+    const firstCard = wrapper.find('#C-3PO')
+    const secondCard = wrapper.find('#R2-D2')
+
+
+    firstCard.simulate('click')
+    secondCard.simulate('click')
+    expect(wrapper.state('favorites').length).toEqual(2)
+    expect(wrapper.state('favorites').length).not.toEqual(1)
+
+  })
+
+  it.only('should be able to add multiple card to favorites', async () => {
+    const wrapper = mount(<App />)
+
+    await waitingFunc()
+
+    const peopleButton = wrapper.find('.people-btn')
+    peopleButton.simulate('click')
+
+    const firstCard = wrapper.find('#C-3PO')
+    const secondCard = wrapper.find('#R2-D2')
+
+
+    firstCard.simulate('click')
+    secondCard.simulate('click')
+    firstCard.simulate('click')
+
+    expect(wrapper.state('favorites')[0].name).toEqual('R2-D2')
+
+
+  })
+
+
 })

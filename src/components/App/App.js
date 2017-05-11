@@ -46,7 +46,7 @@ class App extends Component {
   }
 
   getScrollingQuote() {
-    fetch('http://swapi.co/api/films')
+    fetch('http://swapi.co/api/films/')
     .then((resp) => resp.json())
     .then((data) => {
     this.state.quotes.push(this.dataScrubber.scrubQuotes(data))
@@ -61,7 +61,7 @@ class App extends Component {
   }
 
   getPeople() {
-    fetch('http://swapi.co/api/people')
+    fetch('http://swapi.co/api/people/')
     .then((resp) => resp.json())
     .then((data) => {
     this.setState({ people: this.dataScrubber.scrubPeople(data) })
