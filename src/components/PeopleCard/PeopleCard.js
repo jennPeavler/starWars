@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 export const PeopleCard = ({ singlePerson, handleToggle, favoriteClass, favorites }) => {
   let favoriteCssClass = favoriteClass(singlePerson.name, favorites)
@@ -13,4 +14,11 @@ export const PeopleCard = ({ singlePerson, handleToggle, favoriteClass, favorite
       <h3>{singlePerson.population}</h3>
     </section>
   )
+}
+
+PeopleCard.PropTypes = {
+  singlePerson: PropTypes.object,
+  handleToggle: PropTypes.func,
+  favoriteClass: PropTypes.string,
+  favorites: PropTypes.array
 }
