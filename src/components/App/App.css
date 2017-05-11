@@ -2,6 +2,10 @@
 @import '../SideBar/SideBar.css';
 @import '../Controls/Controls.css';
 @import '../CardDisplay/CardDisplay.css';
+@import '../VehicleCard/VehicleCard.css';
+@import '../PlanetCard/PlanetCard.css';
+@import '../PeopleCard/PeopleCard.css';
+
 @font-face {
   font-family: 'star wars font';
   src: url(./starJedi.ttf);
@@ -27,6 +31,7 @@ main {
   flex-direction: column;
   align-items: center;
   width: 100%;
+  height: 100%;
   /*justify-content: center;*/
 }
 
@@ -107,19 +112,12 @@ h1 {
 #card-display {
   background: #6A452D;
   width: 90%;
-  height: 730px;
+  height: 100%;
   margin-top: 50px;
   margin-bottom: 60px;
-  padding-left: 20px;
-  padding-right: 20px;
-  border-radius: 2%;
-
-}
-
-#vehicle-section,
-#people-section,
-#planet-section {
+  border-radius: 20px;
+  padding: 20px;
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-around;
+  align-items: center;
 }

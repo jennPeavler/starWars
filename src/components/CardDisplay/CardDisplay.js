@@ -96,10 +96,10 @@ export const CardDisplay = ({ people, planets, vehicles, lastClick, handleToggle
       )
     }
     return(
-      <div>
+      <div id='favorites-section'>
       {favorites.map((card, index) => {
         return(
-          <div>
+          <div >
           {handleFavorites(card, index)}
           </div>
         )
