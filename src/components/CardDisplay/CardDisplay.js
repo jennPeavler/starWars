@@ -45,7 +45,7 @@ export const CardDisplay = ({ people, planets, vehicles, lastClick, handleToggle
   switch(lastClick) {
     case 'people':
       return (
-        <section>
+        <section id='people-section'>
           {Object.keys(people).map((key, index) => {
             return(
               <PeopleCard
@@ -60,7 +60,7 @@ export const CardDisplay = ({ people, planets, vehicles, lastClick, handleToggle
       )
     case 'planets':
       return (
-        <section>
+        <section id='planet-section'>
           {Object.keys(planets).map((key, index) => {
             return (
               <PlanetCard
@@ -92,7 +92,7 @@ export const CardDisplay = ({ people, planets, vehicles, lastClick, handleToggle
     case 'favorites':
     if(!favorites.length) {
       return (
-        <div id='select-favorites-display'>Add your favorites you must!</div>
+        <div id='select-favorites-display'>Add your favorites, you must!</div>
       )
     }
     return(
@@ -109,7 +109,7 @@ export const CardDisplay = ({ people, planets, vehicles, lastClick, handleToggle
 
     default:
       return (
-        <div id='category-div'>please select category</div>
+        <div id='category-div'>Select a category, you must!</div>
       )
   }
 

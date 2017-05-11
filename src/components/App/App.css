@@ -2,11 +2,24 @@
 @import '../SideBar/SideBar.css';
 @import '../Controls/Controls.css';
 @import '../CardDisplay/CardDisplay.css';
+@font-face {
+  font-family: 'star wars font';
+  src: url(./starJedi.ttf);
+}
+@font-face {
+  font-family: 'star wars hollow';
+  src: url(./starHollow.ttf);
+}
+@font-face {
+  font-family: 'death star';
+  src: url(./deathStar.otf);
+}
 
 
 main {
   display: flex;
   background: #C0B8BE;
+  font-family: 'star wars font'
 }
 
 #content-wrapper {
@@ -25,8 +38,10 @@ header {
 
 h1 {
   text-align: center;
-  font-size: 3.2em;
+  font-size: 4em;
   margin: 2% 0;
+  font-family: 'star wars font';
+  text-shadow: -3px 0 #F8AC1B, 0 3px #F8AC1B, 3px 0 #F8AC1B, 0 -3px #F8AC1B;
 }
 
 #side-bar-wrapper {
@@ -38,18 +53,17 @@ h1 {
 
 #side-bar {
 	position: absolute;
-	width: 17%;
-	height: 100em;
+	width: 19%;
+	height: 80em;
 	bottom: 0;
 	left: 50%;
-	/*margin-left: -28em;*/
   margin-left: -50%;
 	font-size: 1.4em;
 	font-weight: bold;
 	text-align: justify;
 	overflow: hidden;
 	transform-origin: 50% 100%;
-	transform: perspective(500px) rotateX(20deg);
+	transform: perspective(500px) rotateX(25deg);
   color: #F8AC1B;
   line-height: 1.5em;
   float: left;
@@ -75,7 +89,7 @@ h1 {
 #side-bar-content {
 	position: absolute;
 	top: 100%;
-	animation: scroll 50s linear 4s infinite;
+	animation: scroll 60s linear 4s infinite;
 }
 
 @keyframes scroll {
@@ -95,7 +109,9 @@ h1 {
 
 }
 
-#vehicle-section {
+#vehicle-section,
+#people-section,
+#planet-section {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;

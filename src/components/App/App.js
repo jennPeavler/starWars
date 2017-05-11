@@ -107,7 +107,7 @@ class App extends Component {
         </aside>
         <section id='content-wrapper'>
           <header>
-            <h1 id='title'>STAR WARS IS RAD</h1>
+            <h1 id='title'>star wars is rad</h1>
             <section id='button-wrapper'>
               <Controls
                 id='controls'

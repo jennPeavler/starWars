@@ -1,4 +1,6 @@
-.vehicle-card {
+.vehicle-card,
+.people-card,
+.planet-card {
   border: 3px solid;
   width: 20%;
   margin-top: 30px;
@@ -12,8 +14,9 @@ h2 {
   margin-top: 0;
 }
 
-#category-div {
-  font-size: 4em;
+#category-div,
+#select-favorites-display {
+  font-size: 3.2em;
   position: relative;
   margin-top: 100px;
   text-align: center;
@@ -23,4 +26,5 @@ h2 {
   padding-bottom: 1%;
   margin-left: auto;
   margin-right: auto;
+  /*text-shadow: -1px 0 #F8AC1B, 0 1px #F8AC1B, 1px 0 #F8AC1B, 0 -1px #F8AC1B;*/
 }
