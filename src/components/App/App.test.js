@@ -18,8 +18,8 @@ describe('App Component API Calls', () => {
   }
 
   afterEach(() => {
-    fetchMock.restore()
     expect(fetchMock.calls().unmatched).toEqual([])
+    fetchMock.restore()
   })
 
   it('renders without crashing', () => {
@@ -28,10 +28,11 @@ describe('App Component API Calls', () => {
   })
 
   it('should return error quote if it does not fetch the quote from the film api', async () => {
-    fetchMock.get('http://swapi.co/api/films' , {
+    fetchMock.get('http://swapi.co/api/films/' , {
         status: 500,
       })
-      .catch()
+
+    fetchMock.get('*', {status: 200})
 
 
     const wrapper = mount(<App />)
@@ -41,12 +42,15 @@ describe('App Component API Calls', () => {
     expect(wrapper.state('quotes')).toEqual('For quote more API calls you must have')
   })
 
+
+
   it('should have film quote scroll if film API call returns 200', async () => {
-    fetchMock.get('http://swapi.co/api/films' , {
+    fetchMock.get('http://swapi.co/api/films/' , {
         status: 200,
         body: filmData
       })
-      .catch()
+
+    fetchMock.get('*', {status: 200})
 
       const wrapper = mount(<App />)
 
@@ -55,11 +59,12 @@ describe('App Component API Calls', () => {
       expect(wrapper.state('quotes').length).toEqual(1)
   })
 
+
   it('should return error message in people state if it does not fetch the data from the people api', async () => {
     fetchMock.get('http://swapi.co/api/people' , {
         status: 500,
       })
-      .catch()
+    fetchMock.get('*', {status: 200})
 
 
     const wrapper = mount(<App />)
@@ -70,11 +75,11 @@ describe('App Component API Calls', () => {
   })
 
   it('should have people in state if people API call returns 200', async () => {
-    fetchMock.get('http://swapi.co/api/people' , {
+    fetchMock.get('http://swapi.co/api/people/' , {
         status: 200,
         body: peopleData
       })
-      .catch()
+      fetchMock.get('*', {status: 200})
 
 
       const wrapper = mount(<App />)
@@ -87,7 +92,8 @@ describe('App Component API Calls', () => {
   it('should return error message in planets state if it does not fetch the data from the planet api', async () => {
     fetchMock.get('http://swapi.co/api/planets/' , {
         status: 500,
-      }).catch()
+      })
+    fetchMock.get('*', {status: 200})
 
     const wrapper = mount(<App />)
 
@@ -100,7 +106,8 @@ describe('App Component API Calls', () => {
     fetchMock.get('http://swapi.co/api/planets/' , {
         status: 200,
         body: planetData
-      }).catch()
+      })
+    fetchMock.get('*', {status: 200})
 
 
       const wrapper = mount(<App />)
@@ -114,7 +121,8 @@ describe('App Component API Calls', () => {
   it('should return error message in vehicles state if it does not fetch the data from the vehicles api', async () => {
     fetchMock.get('http://swapi.co/api/vehicles/' , {
         status: 500,
-      }).catch()
+      })
+    fetchMock.get('*', {status: 200})
 
     const wrapper = mount(<App />)
 
@@ -127,7 +135,8 @@ describe('App Component API Calls', () => {
     fetchMock.get('http://swapi.co/api/vehicles/' , {
         status: 200,
         body: vehicleData
-      }).catch()
+      })
+    fetchMock.get('*', {status: 200})
 
 
       const wrapper = mount(<App />)
@@ -140,8 +149,17 @@ describe('App Component API Calls', () => {
 })
 
 describe('App handleClick function', () => {
+  beforeEach(() => {
+    fetchMock.get('*', {status: 200})
+  })
+
+  afterEach(() => {
+    expect(fetchMock.calls().unmatched).toEqual([])
+    fetchMock.restore()
+  })
 
   it('should change lastClicked state to people when people button is clicked', () => {
+
     const wrapper = mount(<App />)
 
     const peopleButton = wrapper.find('.people-btn')
@@ -194,35 +212,27 @@ describe('App handleToggle function', () => {
 
   beforeEach(() => {
     fetchMock.get('http://swapi.co/api/films/' , {
-        status: 200,
-        body: filmData
-      })
-      .catch()
-
-      fetchMock.get('http://swapi.co/api/planets/' , {
-          status: 200,
-          body: planetData
-        })
-        .catch()
-
-      fetchMock.get('http://swapi.co/api/vehicles/' , {
-          status: 200,
-          body: vehicleData
-        })
-        .catch()
-
-      fetchMock.get('http://swapi.co/api/people/' , {
-          status: 200,
-          body: peopleData
-        })
-        .catch()
-
-
+      status: 200,
+      body: filmData
+    })
+    fetchMock.get('http://swapi.co/api/planets/' , {
+      status: 200,
+      body: planetData
+    })
+    fetchMock.get('http://swapi.co/api/people/' , {
+      status: 200,
+      body: peopleData
+    })
+    fetchMock.get('http://swapi.co/api/vehicles/' , {
+      status: 200,
+      body: vehicleData
+    })
+    fetchMock.get('*', {status: 200})
   })
 
   afterEach(() => {
-    fetchMock.restore()
     expect(fetchMock.calls().unmatched).toEqual([])
+    fetchMock.restore()
   })
 
   it('should add the correct card obj to favorites when the card is clicked', async () => {
@@ -235,7 +245,6 @@ describe('App handleToggle function', () => {
 
     const cardToBeClicked = wrapper.find('#C-3PO')
 
-    // console.log(cardToBeClicked)
     cardToBeClicked.simulate('click')
     await waitingFunc()
     expect(cardToBeClicked.props().id).toBe('C-3PO')
@@ -253,7 +262,7 @@ describe('App handleToggle function', () => {
 
     const cardToBeClicked = wrapper.find('#C-3PO')
 
-    // console.log(cardToBeClicked)
+
     cardToBeClicked.simulate('click')
     expect(wrapper.state('favorites').length).toEqual(1)
 
@@ -303,7 +312,7 @@ describe('App handleToggle function', () => {
 
   })
 
-  it.only('should be able to make all three types of cards favorite card', async () => {
+  it('should be able to make all three types of cards favorite card', async () => {
     const wrapper = mount(<App />)
 
     await waitingFunc()
@@ -325,11 +334,5 @@ describe('App handleToggle function', () => {
 
     expect(wrapper.state('favorites').length).toEqual(3)
 
-
-
-
-
   })
-
-
 })

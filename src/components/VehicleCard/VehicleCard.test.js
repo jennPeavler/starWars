@@ -62,22 +62,20 @@ describe('VehicleCard', () => {
     expect(singleCard.id).toEqual('AT-AT')
   })
 
-  it('should have one header h1 and four h3 sub categories', async () => {
+  it('should have one header h2 and four h4 sub categories', async () => {
     const wrapper = mount(<VehicleCard singleVehicle={singleVehicleData} favoriteClass={mockFunc} favorites={[]} />)
 
     await waitingFunc()
 
     const singleCardChildren = wrapper.find('.vehicle-card').props().children
-    console.log(singleCardChildren);
-
-    const h1Count = singleCardChildren.filter((attr) => {
+    const h2Count = singleCardChildren.filter((attr) => {
       return attr.type === 'h2'
     })
     const h4Count = singleCardChildren.filter((attr) => {
       return attr.type === 'h4'
     })
 
-    expect(h1Count.length).toEqual(1)
+    expect(h2Count.length).toEqual(1)
     expect(h4Count.length).toEqual(3)
   })
 })
