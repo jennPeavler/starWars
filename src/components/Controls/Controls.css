@@ -41,3 +41,11 @@ font-family: 'death star'
   justify-content: center;
   align-items: center;
 }
+
+.vehicles-btn {
+  cursor: url('./vehicle.svg'), default;
+}
+
+.people-btn {
+  cursor: url('./people.png'), default;
+}

@@ -23,7 +23,8 @@
 main {
   display: flex;
   background: #C0B8BE;
-  font-family: 'star wars font'
+  font-family: 'star wars font';
+  cursor: url('./pointer.svg'), default;
 }
 
 #content-wrapper {
