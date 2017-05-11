@@ -2,7 +2,12 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 export const PlanetCard = ({ singlePlanet, handleToggle, favoriteClass, favorites }) => {
-  let favoriteCssClass = favoriteClass(singlePlanet.name, favorites)
+  let favs = favorites.map((obj) => {
+    return obj.name
+  })
+
+  let favoriteCssClass = favoriteClass(singlePlanet.name, favs)
+
   return (
     <section id={singlePlanet.name} className={`planet-card ${favoriteCssClass}`} onClick={() => {handleToggle(singlePlanet)}}>
       <h2>{singlePlanet.name}</h2>

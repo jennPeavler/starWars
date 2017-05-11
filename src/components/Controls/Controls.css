@@ -29,11 +29,13 @@ font-family: 'death star'
 
 #favorites-indicator {
   margin-left: 5px;
-  background-color: #E30A00;
+  background-color: red;
   font-weight: bold;
   border-radius: 25%;
   margin-bottom: 2px;
   padding: 2px;
+  height:15px;
+  width:15px;
 }
 
 #favorites-btn {
