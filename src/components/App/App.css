@@ -67,6 +67,13 @@ h1 {
   color: #F8AC1B;
   line-height: 1.5em;
   float: left;
+  font-family: 'death star'
+}
+
+#side-bar-title {
+  text-align: center;
+  font-size: 2em;
+  font-family: 'star wars hollow'
 }
 
 #button-wrapper {

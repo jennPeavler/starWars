@@ -1,3 +1,16 @@
+@font-face {
+  font-family: 'star wars font';
+  src: url(../App/starJedi.ttf);
+}
+@font-face {
+  font-family: 'star wars hollow';
+  src: url(../App/starHollow.ttf);
+}
+@font-face {
+  font-family: 'death star';
+  src: url(../App/deathStar.otf);
+}
+
 .button {
 width: 150px;
 padding-top: 4px;
@@ -6,6 +19,7 @@ height: 30px;
 border-radius: 20px;
 border: none;
 background: white;
+font-family: 'death star'
 }
 
 .button:focus {

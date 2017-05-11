@@ -99,6 +99,7 @@ class App extends Component {
         <aside id='side-bar-wrapper'>
           <section id='side-bar'>
             <div id='side-bar-content'>
+              <h3 id='side-bar-title'>STAR WARS</h3>
               <SideBar
                 id='movie-quote'
                 quotes={this.state.quotes} />
