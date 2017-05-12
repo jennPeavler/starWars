@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './App.css';
 import {Controls} from '../Controls/Controls'
 import {SideBar} from '../SideBar/SideBar'
-import {Favorites} from '../Favorites/Favorites'
 import {CardDisplay} from '../CardDisplay/CardDisplay'
 import DataScrubbers from '../DataScrubbers/DataScrubbers'
 
@@ -115,11 +114,8 @@ class App extends Component {
                 handleClick={this.handleClick.bind(this)}
                 getPeople={this.getPeople.bind(this)}
                 getVehicles={this.getVehicles.bind(this)}
-                getPlanets={this.getPlanets.bind(this)} />
-              <Favorites
-                id='favorites'
-                handleClick={this.handleClick.bind(this)}
-                favorites={this.state.favorites}/>
+                getPlanets={this.getPlanets.bind(this)}
+                favorites={this.state.favorites} />
             </section>
             </header>
             <section id='card-display'>

@@ -12,10 +12,10 @@ export const PeopleCard = ({ singlePerson, handleToggle, favoriteClass, favorite
   return(
     <section id={singlePerson.name} className={`people-card ${favoriteCssClass}`} onClick={() => {handleToggle(singlePerson)}}>
       <h2>{singlePerson.name}</h2>
-      <h4>{singlePerson.species}</h4>
-      <h4>{singlePerson.language}</h4>
-      <h4>{singlePerson.homeworld}</h4>
-      <h4>{singlePerson.population}</h4>
+      <h4><span className='labels'>Species:</span><br />{singlePerson.species}</h4>
+      <h4><span className='labels'>Language:</span><br />{singlePerson.language}</h4>
+      <h4><span className='labels'>Home:</span><br />{singlePerson.homeworld}</h4>
+      <h4><span className='labels'>Population:</span><br />{singlePerson.population}</h4>
     </section>
   )
 }
