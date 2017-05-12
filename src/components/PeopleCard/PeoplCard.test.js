@@ -72,7 +72,7 @@ describe('PeopleCard', () => {
     const h4Count = singleCardChildren.filter((attr) => {
       return attr.type === 'h4'
     })
-    
+
     expect(h2Count.length).toEqual(1)
     expect(h4Count.length).toEqual(4)
   })
