@@ -1,5 +1,4 @@
 @import 'normalize.css';
-@import '../SideBar/SideBar.css';
 @import '../Controls/Controls.css';
 @import '../CardDisplay/CardDisplay.css';
 @import '../VehicleCard/VehicleCard.css';
@@ -98,7 +97,7 @@ h1 {
 }
 
 #side-bar-content {
-	animation: scroll 175s linear 4s infinite;
+	animation: scroll 175s linear 1s infinite;
 	position: absolute;
 	top: 100%;
 }

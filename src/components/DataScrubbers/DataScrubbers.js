@@ -10,7 +10,6 @@ export default class DataScrubbers {
   }
 
   scrubPeople(data) {
-
     return data.results.reduce((acc, val) => {
       if(!acc[val.name]) {
 
@@ -77,16 +76,16 @@ export default class DataScrubbers {
       }, {})
     }
 
-    favoriteClass(name, favorites) {
-      if (favorites.length === 0) {
-        return ""
-      } else if (favorites.length) {
-        let match = favorites.find((val) => {
-          return val === name
-        })
-        if (match) {
-          return 'selected'
-        }
+  favoriteClass(name, favorites) {
+    if (favorites.length === 0) {
+      return ""
+    } else if (favorites.length) {
+      let match = favorites.find((val) => {
+        return val === name
+      })
+      if (match) {
+        return 'selected'
       }
     }
+  }
 }

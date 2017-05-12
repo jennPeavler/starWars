@@ -26,25 +26,18 @@ describe('PlanetCard', () => {
         status: 200,
         body: filmData
       })
-      .catch()
-
-      fetchMock.get('http://swapi.co/api/planets/' , {
-          status: 200,
-          body: planetData
-        })
-        .catch()
-
-      fetchMock.get('http://swapi.co/api/vehicles/' , {
-          status: 200,
-          body: vehicleData
-        })
-        .catch()
-
-      fetchMock.get('http://swapi.co/api/people/' , {
-          status: 200,
-          body: peopleData
-        })
-        .catch()
+    fetchMock.get('http://swapi.co/api/planets/' , {
+        status: 200,
+        body: planetData
+      })
+    fetchMock.get('http://swapi.co/api/vehicles/' , {
+        status: 200,
+        body: vehicleData
+      })
+    fetchMock.get('http://swapi.co/api/people/' , {
+        status: 200,
+        body: peopleData
+      })
   })
 
   afterEach(() => {
@@ -59,6 +52,7 @@ describe('PlanetCard', () => {
     await waitingFunc()
 
     const singleCard = wrapper.find('.planet-card').props()
+
     expect(singleCard.id).toEqual('Naboo')
   })
 
@@ -71,17 +65,15 @@ describe('PlanetCard', () => {
     const h2Count = singleCardChildren.filter((attr) => {
       return attr.type === 'h2'
     })
-
     const h4CountNonResident = singleCardChildren.filter((attr) => {
       return attr.type === 'h4'
     })
-    const h4CountResident = singleCardChildren[4].filter((attr) => {
+    const h4CountResident = singleCardChildren[5].filter((attr) => {
       return attr.type === 'h4'
     })
-
     const totalh4 = h4CountNonResident.length + h4CountResident.length
 
     expect(h2Count.length).toEqual(1)
-    expect(totalh4).toEqual(5)
+    expect(totalh4).toEqual(6)
   })
 })

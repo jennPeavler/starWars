@@ -33,8 +33,6 @@ describe('App Component API Calls', () => {
       })
 
     fetchMock.get('*', {status: 200})
-
-
     const wrapper = mount(<App />)
 
     await waitingFunc()
@@ -51,12 +49,11 @@ describe('App Component API Calls', () => {
       })
 
     fetchMock.get('*', {status: 200})
+    const wrapper = mount(<App />)
 
-      const wrapper = mount(<App />)
+    await waitingFunc()
 
-      await waitingFunc()
-
-      expect(wrapper.state('quotes').length).toEqual(1)
+    expect(wrapper.state('quotes').length).toEqual(1)
   })
 
 
@@ -65,8 +62,6 @@ describe('App Component API Calls', () => {
         status: 500,
       })
     fetchMock.get('*', {status: 200})
-
-
     const wrapper = mount(<App />)
 
     await waitingFunc()
@@ -78,15 +73,13 @@ describe('App Component API Calls', () => {
     fetchMock.get('http://swapi.co/api/people/' , {
         status: 200,
         body: peopleData
-      })
-      fetchMock.get('*', {status: 200})
+    })
+    fetchMock.get('*', {status: 200})
+    const wrapper = mount(<App />)
 
-
-      const wrapper = mount(<App />)
-
-      await waitingFunc()
-      let keys = Object.keys(wrapper.state('people'))
-      expect(keys.length).toEqual(10)
+    await waitingFunc()
+    let keys = Object.keys(wrapper.state('people'))
+    expect(keys.length).toEqual(10)
   })
 
   it('should return error message in planets state if it does not fetch the data from the planet api', async () => {
@@ -94,7 +87,6 @@ describe('App Component API Calls', () => {
         status: 500,
       })
     fetchMock.get('*', {status: 200})
-
     const wrapper = mount(<App />)
 
     await waitingFunc()
@@ -108,14 +100,13 @@ describe('App Component API Calls', () => {
         body: planetData
       })
     fetchMock.get('*', {status: 200})
+    const wrapper = mount(<App />)
 
+    await waitingFunc()
 
-      const wrapper = mount(<App />)
+    let keys = Object.keys(wrapper.state('planets'))
 
-      await waitingFunc()
-
-      let keys = Object.keys(wrapper.state('planets'))
-      expect(keys.length).toEqual(10)
+    expect(keys.length).toEqual(10)
   })
 
   it('should return error message in vehicles state if it does not fetch the data from the vehicles api', async () => {
@@ -123,7 +114,6 @@ describe('App Component API Calls', () => {
         status: 500,
       })
     fetchMock.get('*', {status: 200})
-
     const wrapper = mount(<App />)
 
     await waitingFunc()
@@ -137,14 +127,12 @@ describe('App Component API Calls', () => {
         body: vehicleData
       })
     fetchMock.get('*', {status: 200})
+    const wrapper = mount(<App />)
 
+    await waitingFunc()
 
-      const wrapper = mount(<App />)
-
-      await waitingFunc()
-
-      let keys = Object.keys(wrapper.state('vehicles'))
-      expect(keys.length).toEqual(10)
+    let keys = Object.keys(wrapper.state('vehicles'))
+    expect(keys.length).toEqual(10)
   })
 })
 
@@ -161,7 +149,6 @@ describe('App handleClick function', () => {
   it('should change lastClicked state to people when people button is clicked', () => {
 
     const wrapper = mount(<App />)
-
     const peopleButton = wrapper.find('.people-btn')
 
     peopleButton.simulate('click')
@@ -171,7 +158,6 @@ describe('App handleClick function', () => {
 
   it('should change lastClicked state to planets when planets button is clicked', () => {
     const wrapper = mount(<App />)
-
     const planetsButton = wrapper.find('.planets-btn')
 
     planetsButton.simulate('click')
@@ -181,7 +167,6 @@ describe('App handleClick function', () => {
 
   it('should change lastClicked state to vehicles when vehicles button is clicked', () => {
     const wrapper = mount(<App />)
-
     const vehiclesButton = wrapper.find('.vehicles-btn')
 
     vehiclesButton.simulate('click')
@@ -191,7 +176,6 @@ describe('App handleClick function', () => {
 
   it('should change lastClicked state to favorites when favorites button is clicked', () => {
     const wrapper = mount(<App />)
-
     const favoritesButton = wrapper.find('#favorites-btn')
 
     favoritesButton.simulate('click')
@@ -244,9 +228,10 @@ describe('App handleToggle function', () => {
     peopleButton.simulate('click')
 
     const cardToBeClicked = wrapper.find('#C-3PO')
-
     cardToBeClicked.simulate('click')
+
     await waitingFunc()
+
     expect(cardToBeClicked.props().id).toBe('C-3PO')
     expect(wrapper.state('favorites')[0].name).toEqual('C-3PO')
     expect(wrapper.state('favorites')[0].name).not.toEqual('Luke Skywalker')
@@ -261,14 +246,14 @@ describe('App handleToggle function', () => {
     peopleButton.simulate('click')
 
     const cardToBeClicked = wrapper.find('#C-3PO')
-
-
     cardToBeClicked.simulate('click')
+
     expect(wrapper.state('favorites').length).toEqual(1)
 
     await waitingFunc()
 
     cardToBeClicked.simulate('click')
+
     expect(wrapper.state('favorites').length).toEqual(0)
   })
 
@@ -283,12 +268,11 @@ describe('App handleToggle function', () => {
     const firstCard = wrapper.find('#C-3PO')
     const secondCard = wrapper.find('#R2-D2')
 
-
     firstCard.simulate('click')
     secondCard.simulate('click')
+
     expect(wrapper.state('favorites').length).toEqual(2)
     expect(wrapper.state('favorites').length).not.toEqual(1)
-
   })
 
   it('if there are multiple favorite card, and one is clicked, should remove the correct card', async () => {
@@ -302,14 +286,11 @@ describe('App handleToggle function', () => {
     const firstCard = wrapper.find('#C-3PO')
     const secondCard = wrapper.find('#R2-D2')
 
-
     firstCard.simulate('click')
     secondCard.simulate('click')
     firstCard.simulate('click')
 
     expect(wrapper.state('favorites')[0].name).toEqual('R2-D2')
-
-
   })
 
   it('should be able to make all three types of cards favorite card', async () => {
@@ -319,20 +300,22 @@ describe('App handleToggle function', () => {
 
     const peopleButton = wrapper.find('.people-btn')
     peopleButton.simulate('click')
+
     const peopleCard = wrapper.find('#R2-D2')
     peopleCard.simulate('click')
 
     const planetButton = wrapper.find('.planets-btn')
     planetButton.simulate('click')
+
     const planetCard = wrapper.find('#Naboo')
     planetCard.simulate('click')
 
     const vehicleButton = wrapper.find('.vehicles-btn')
     vehicleButton.simulate('click')
+
     const vehicleCard = wrapper.find('#AT-AT')
     vehicleCard.simulate('click')
 
     expect(wrapper.state('favorites').length).toEqual(3)
-
   })
 })

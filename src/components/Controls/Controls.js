@@ -8,8 +8,6 @@ export const Controls = ( {getPeople, getVehicles, getPlanets, handleClick, favo
       <button className='button planets-btn' onClick={() => handleClick('planets')}>PLANETS</button>
       <button className='button vehicles-btn' onClick={() => handleClick('vehicles')}>VEHICLES</button>
       <button className='button' id='favorites-btn' onClick={(e) => handleClick('favorites')}>FAVORITES<span id='favorites-indicator'>{favorites.length}</span></button>
-
-
     </div>
   )
 }

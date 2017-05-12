@@ -13,13 +13,10 @@ describe('SideBar', () => {
   const scrub = new DataScrubbers()
   const quotes = scrub.scrubQuotes(filmData)
 
-
   it('on page load, it should have a quote to scroll', () => {
     const wrapper = mount(<SideBar quotes={quotes}/>)
 
     expect(wrapper.props()).toHaveProperty('quotes')
     expect(wrapper.props().quotes.length).toBeGreaterThan(0)
   } )
-
-
 })

@@ -5,7 +5,6 @@ export const VehicleCard = ({ singleVehicle, handleToggle, favoriteClass, favori
   let favs = favorites.map((obj) => {
     return obj.name
   })
-
   let favoriteCssClass = favoriteClass(singleVehicle.name, favs)
 
   return (

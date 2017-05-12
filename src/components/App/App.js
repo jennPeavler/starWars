@@ -27,20 +27,18 @@ class App extends Component {
   }
 
   handleClick(cardType) {
-
     this.setState({ lastClick: cardType })
   }
 
   handleToggle(name){
     if(!this.state.favorites.includes(name)) {
-
       this.state.favorites.push(name)
       return this.setState( {favorites: this.state.favorites} )
     } else if (this.state.favorites.includes(name)) {
-
       let match = this.state.favorites.indexOf(name)
+
       this.state.favorites.splice(match, 1)
-      this.setState({favorites: this.state.favorites})
+      return this.setState({favorites: this.state.favorites})
     }
   }
 
@@ -52,10 +50,7 @@ class App extends Component {
     this.setState({ quotes: this.state.quotes })
   })
   .catch((response) => {
-
-
       this.setState({ quotes: 'For quote more API calls you must have' })
-
   })
   }
 

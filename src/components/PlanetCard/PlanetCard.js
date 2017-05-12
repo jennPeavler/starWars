@@ -5,7 +5,6 @@ export const PlanetCard = ({ singlePlanet, handleToggle, favoriteClass, favorite
   let favs = favorites.map((obj) => {
     return obj.name
   })
-
   let favoriteCssClass = favoriteClass(singlePlanet.name, favs)
 
   return (
