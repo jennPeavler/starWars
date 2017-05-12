@@ -12,37 +12,44 @@
 }
 
 .button {
-width: 150px;
-padding-top: 4px;
-margin-right: 20px;
-height: 30px;
+background: #eaeaea;
 border-radius: 20px;
 border: none;
-background: white;
-font-family: 'death star'
+box-shadow: 1px 1px 1px rgba(37, 37, 37, 0.70);
+font-family: 'death star';
+height: 30px;
+margin-right: 20px;
+padding-top: 4px;
+width: 150px;
+}
+
+.button:hover {
+  box-shadow: none;
 }
 
 .button:focus {
+  background-color: #73c387;
+  border: 1px dotted #E30A00;
+  box-shadow: none;
   outline: 0;
-  border: 1px dotted #E30A00
 }
 
 #favorites-indicator {
-  margin-left: 5px;
   background-color: red;
-  font-weight: bold;
   border-radius: 25%;
-  margin-bottom: 2px;
-  padding: 2px;
+  font-weight: bold;
   height:15px;
+  margin-bottom: 2px;
+  margin-left: 5px;
+  padding: 2px;
   width:15px;
 }
 
 #favorites-btn {
-  display: flex;
-  justify-content: center;
   align-items: center;
   cursor: url('./favorites.svg'), default;
+  display: flex;
+  justify-content: center;
 }
 
 .vehicles-btn {
@@ -55,4 +62,16 @@ font-family: 'death star'
 
 .planets-btn {
   cursor: url('./planets.png'), default;
+}
+
+.button-container{
+  display: flex;
+  width: 100%;
+}
+
+#favorites-btn:hover,
+.vehicles-btn:hover,
+.people-btn:hover,
+.planets-btn:hover {
+  background-color: #73c387;
 }

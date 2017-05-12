@@ -13,16 +13,13 @@ h2 {
   margin-top: 0;
 }
 
-
 #category-div,
 #select-favorites-display {
+  background-color: #4F3952;
+  border-radius: 25px;
   font-size: 3.2em;
+  padding: 20px;
   position: relative;
   text-align: center;
-  background-color: #4F3952;
-  width: 75%;
-  border-radius: 25px;
-  padding-bottom: 1%;
-  margin-left: auto;
-  margin-right: auto;
+  width: 100%;
 }
