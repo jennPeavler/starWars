@@ -63,7 +63,7 @@ h1 {
 	left: 50%;
 	overflow: hidden;
 	position: absolute;
-	text-align: justify;
+	text-align: left;
 	transform-origin: 50% 100%;
 	transform: perspective(500px) rotateX(25deg);
 	width: 19%;
@@ -98,7 +98,7 @@ h1 {
 }
 
 #side-bar-content {
-	animation: scroll 60s linear 4s infinite;
+	animation: scroll 175s linear 4s infinite;
 	position: absolute;
 	top: 100%;
 }
