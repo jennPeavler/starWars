@@ -43,7 +43,7 @@ class App extends Component {
   }
 
   getScrollingQuote() {
-    fetch('http://swapi.co/api/films/')
+    fetch('https://swapi.co/api/films/')
     .then((resp) => resp.json())
     .then((data) => {
     this.state.quotes.push(this.dataScrubber.scrubQuotes(data))
@@ -55,7 +55,7 @@ class App extends Component {
   }
 
   getPeople() {
-    fetch('http://swapi.co/api/people/')
+    fetch('https://swapi.co/api/people/')
     .then((resp) => resp.json())
     .then((data) => {
     this.setState({ people: this.dataScrubber.scrubPeople(data) })
@@ -66,7 +66,7 @@ class App extends Component {
   }
 
   getPlanets() {
-    fetch('http://swapi.co/api/planets/')
+    fetch('https://swapi.co/api/planets/')
     .then((resp) => resp.json())
     .then((data) => {
       this.setState({ planets: this.dataScrubber.scrubPlanets(data) })
@@ -77,7 +77,7 @@ class App extends Component {
   }
 
   getVehicles() {
-    fetch('http://swapi.co/api/vehicles/')
+    fetch('https://swapi.co/api/vehicles/')
     .then((resp) => resp.json())
     .then((data) => {
       this.setState({ vehicles: this.dataScrubber.scrubVehicles(data) })
