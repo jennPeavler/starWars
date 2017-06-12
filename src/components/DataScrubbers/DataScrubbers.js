@@ -17,7 +17,11 @@ export default class DataScrubbers {
         acc[val.name].name = val.name
         acc[val.name].type = 'people'
 
-        fetch(val.homeworld)
+        let secureHome = val.homeworld.substr(0, 4) + 's'
+        let pathHome = val.homeworld.substr(4)
+        let securePathHome = secureHome + pathHome
+
+        fetch(securePathHome)
         .then((resp) => resp.json())
         .then((data) => {
           acc[val.name].homeworld=data.name
@@ -25,7 +29,11 @@ export default class DataScrubbers {
           return
         })
 
-        fetch(val.species[0])
+        let secureSpecies = val.species[0].substr(0, 4) + 's'
+        let pathSpecies = val.species[0].substr(4)
+        let securePathSpecies = secureSpecies + pathSpecies
+
+        fetch(securePathSpecies)
         .then((resp) => resp.json())
         .then((data) => {
 
@@ -50,7 +58,10 @@ export default class DataScrubbers {
             acc[val.name].residents = []
 
             val.residents.forEach((resident, i) => {
-              fetch(resident)
+              let secureResident = resident.substr(0, 4) + 's'
+              let pathResident = resident.substr(4)
+              let securePathResident = secureResident + pathResident
+              fetch(securePathResident)
               .then((resp) => resp.json())
               .then((data) => {
                   acc[val.name].residents.push(data.name)
