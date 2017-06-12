@@ -6,7 +6,7 @@ Documentation for the API that I used to retrieve all the Star Wars data can be 
 
 You can view the finished project hosted on heroku [here](https://i-like-star-wars.herokuapp.com/).
 
-[](./src/images/StarWars.png 'Screen Shot')
+![Screen Shot](./src/images/StarWars.png?raw=true 'Screen Shot')
 
 
 
