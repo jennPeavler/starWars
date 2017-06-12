@@ -1,3 +1,16 @@
+I built this Star Wars project with a fellow developer, [Dave Hubertus](https://github.com/dhubertus).
+
+My intent was not only to build something that looked awesomely Star Wars-y, but also to improve my skills with React, to gain experience manipulating large data sets, and to understand the asynchronous issues that come with API calls, particularily nested API calls.
+
+Documentation for the API that I used to retrieve all the Star Wars data can be found [here](https://swapi.co/).
+
+You can view the finished project hosted on heroku [here](https://i-like-star-wars.herokuapp.com/).
+
+(./src/images/StarWars.png 'Screen Shot')
+
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
