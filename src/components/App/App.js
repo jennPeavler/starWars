@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import '../../assets/styles/App.css';
 import {Controls} from '../Controls/Controls'
 import {SideBar} from '../SideBar/SideBar'
 import {CardDisplay} from '../CardDisplay/CardDisplay'

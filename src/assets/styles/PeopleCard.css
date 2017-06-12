@@ -1,6 +1,6 @@
-.vehicle-card {
+.people-card {
   align-items: center;
-  background: url('../App/images/deathstar.jpg');
+  background: url('../../assets/images/deathstar.jpg');
   background-blend-mode: overlay;
   background-color: rgba(132, 125, 130, 0.75);
   background-size: cover;
@@ -18,7 +18,7 @@
   width: 150px;
 }
 
-.vehicle-card:hover {
+.people-card:hover {
   box-shadow: none;
 }
 

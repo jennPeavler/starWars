@@ -1,9 +1,9 @@
 import React from 'react';
 import DataScrubbers from './DataScrubbers'
-import filmData from '../App/mockdata/filmData.js'
-import peopleData from '../App/mockdata/peopleData.js'
-import planetData from '../App/mockdata/planetData.js'
-import vehicleData from '../App/mockdata/vehicleData.js'
+import filmData from '../../mockdata/filmData.js'
+import peopleData from '../../mockdata/peopleData.js'
+import planetData from '../../mockdata/planetData.js'
+import vehicleData from '../../mockdata/vehicleData.js'
 
 describe('dataScrubbers functionality', () => {
   const dataScrubbers = new DataScrubbers
