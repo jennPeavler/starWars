@@ -5,9 +5,9 @@ import { PeopleCard } from '../PeopleCard/PeopleCard'
 import PropTypes from 'prop-types'
 
 export const CardDisplay = ({ people, planets, vehicles, lastClick, handleToggle, favoriteClass, favorites }) => {
-  let handleFavorites = (card, index) => {
-    switch(card.type){
 
+  let handleFavorites = (card, index) => {
+    switch(card.type) {
       case 'people':
         return(
           <PeopleCard
@@ -17,7 +17,6 @@ export const CardDisplay = ({ people, planets, vehicles, lastClick, handleToggle
             favoriteClass={favoriteClass}
             favorites={favorites}/>
         )
-
         case 'planets':
           return(
             <PlanetCard
@@ -27,7 +26,6 @@ export const CardDisplay = ({ people, planets, vehicles, lastClick, handleToggle
               favoriteClass={favoriteClass}
               favorites={favorites}/>
           )
-
           case 'vehicles':
             return(
               <VehicleCard
@@ -38,16 +36,16 @@ export const CardDisplay = ({ people, planets, vehicles, lastClick, handleToggle
                 favorites={favorites}
                />
             )
-
           default:
             return(
               <div>Add Some Favorites</div>
             )
+      }
     }
-  }
+
+
 
   switch(lastClick) {
-
     case 'people':
       return (
         <section id='people-section'>
@@ -63,7 +61,6 @@ export const CardDisplay = ({ people, planets, vehicles, lastClick, handleToggle
           })}
         </section>
       )
-
     case 'planets':
       return (
         <section id='planet-section'>
@@ -79,7 +76,6 @@ export const CardDisplay = ({ people, planets, vehicles, lastClick, handleToggle
           })}
         </section>
       )
-
     case 'vehicles':
       return (
         <section id='vehicle-section'>
@@ -96,7 +92,6 @@ export const CardDisplay = ({ people, planets, vehicles, lastClick, handleToggle
           })}
         </section>
       )
-
     case 'favorites':
       if(!favorites.length) {
         return (
@@ -114,7 +109,6 @@ export const CardDisplay = ({ people, planets, vehicles, lastClick, handleToggle
         })}
         </div>
       )
-
     default:
       return (
         <div id='category-div'>Select a category, you must!</div>

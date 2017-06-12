@@ -1,14 +1,14 @@
 @font-face {
   font-family: 'star wars font';
-  src: url(../App/starJedi.ttf);
+  src: url(../../assets/fonts/starJedi.ttf);
 }
 @font-face {
   font-family: 'star wars hollow';
-  src: url(../App/starHollow.ttf);
+  src: url(../../assets/fonts/starHollow.ttf);
 }
 @font-face {
   font-family: 'death star';
-  src: url(../App/deathStar.otf);
+  src: url(../../assets/fonts/deathStar.otf);
 }
 
 .button {
@@ -47,21 +47,21 @@ width: 150px;
 
 #favorites-btn {
   align-items: center;
-  cursor: url('./favorites.svg'), default;
+  cursor: url('../../assets/images/favorites.svg'), default;
   display: flex;
   justify-content: center;
 }
 
 .vehicles-btn {
-  cursor: url('./vehicle.svg'), default;
+  cursor: url('../../assets/images/vehicle.svg'), default;
 }
 
 .people-btn {
-  cursor: url('./people.png'), default;
+  cursor: url('../../assets/images/people.png'), default;
 }
 
 .planets-btn {
-  cursor: url('./planets.png'), default;
+  cursor: url('../../assets/images/planets.png'), default;
 }
 
 .button-container{

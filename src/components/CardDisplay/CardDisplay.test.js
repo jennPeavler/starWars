@@ -2,10 +2,10 @@ import React from 'react';
 import { CardDisplay } from './CardDisplay';
 import fetchMock from 'fetch-mock'
 import { mount, shallow } from 'enzyme'
-import filmData from '../App/mockdata/filmData.js'
-import peopleData from '../App/mockdata/peopleData.js'
-import planetData from '../App/mockdata/planetData.js'
-import vehicleData from '../App/mockdata/vehicleData.js'
+import filmData from '../../mockdata/filmData.js'
+import peopleData from '../../mockdata/peopleData.js'
+import planetData from '../../mockdata/planetData.js'
+import vehicleData from '../../mockdata/vehicleData.js'
 import DataScrubbers from '../DataScrubbers/DataScrubbers.js'
 
 

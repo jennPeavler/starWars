@@ -2,9 +2,7 @@ import React from 'react';
 import { SideBar } from './SideBar';
 import fetchMock from 'fetch-mock'
 import { mount, shallow } from 'enzyme'
-import filmData from '../App/mockdata/filmData.js'
-import planetData from '../App/mockdata/planetData.js'
-import vehicleData from '../App/mockdata/vehicleData.js'
+import filmData from '../../mockdata/filmData.js'
 import DataScrubbers from '../DataScrubbers/DataScrubbers.js'
 
 

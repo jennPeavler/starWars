@@ -1,27 +1,27 @@
-@import 'normalize.css';
-@import '../Controls/Controls.css';
-@import '../CardDisplay/CardDisplay.css';
-@import '../VehicleCard/VehicleCard.css';
-@import '../PlanetCard/PlanetCard.css';
-@import '../PeopleCard/PeopleCard.css';
+@import '../normalize.css';
+@import './Controls.css';
+@import './CardDisplay.css';
+@import './VehicleCard.css';
+@import './PlanetCard.css';
+@import './PeopleCard.css';
 
 @font-face {
   font-family: 'star wars font';
-  src: url(./starJedi.ttf);
+  src: url(../../assets/fonts/starJedi.ttf);
 }
 @font-face {
   font-family: 'star wars hollow';
-  src: url(./starHollow.ttf);
+  src: url(../../assets/fonts/starHollow.ttf);
 }
 @font-face {
   font-family: 'death star';
-  src: url(./deathStar.otf);
+  src: url(../../assets/fonts/deathStar.otf);
 }
 
 
 main {
   background: #C0B8BE;
-  cursor: url('./pointer.svg'), default;
+  cursor: url('../../assets/images/pointer.svg'), default;
   display: flex;
   font-family: 'star wars font';
 }

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import '../../assets/styles/App.css';
 import {Controls} from '../Controls/Controls'
 import {SideBar} from '../SideBar/SideBar'
 import {CardDisplay} from '../CardDisplay/CardDisplay'
@@ -46,19 +46,19 @@ class App extends Component {
     fetch('https://swapi.co/api/films/')
     .then((resp) => resp.json())
     .then((data) => {
-    this.state.quotes.push(this.dataScrubber.scrubQuotes(data))
-    this.setState({ quotes: this.state.quotes })
-  })
-  .catch((response) => {
+      this.state.quotes.push(this.dataScrubber.scrubQuotes(data))
+      this.setState({ quotes: this.state.quotes })
+    })
+    .catch((response) => {
       this.setState({ quotes: 'For quote more API calls you must have' })
-  })
+    })
   }
 
   getPeople() {
     fetch('https://swapi.co/api/people/')
     .then((resp) => resp.json())
     .then((data) => {
-    this.setState({ people: this.dataScrubber.scrubPeople(data) })
+      this.setState({ people: this.dataScrubber.scrubPeople(data) })
     })
     .catch((error) => {
       this.setState({ people: 'Need people, you do' })
@@ -125,7 +125,7 @@ class App extends Component {
             </section>
         </section>
       </main>
-    );
+    )
   }
 }
 
